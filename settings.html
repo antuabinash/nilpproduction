@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP System Settings</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>body { font-family: sans-serif; background: #f1f5f9; }</style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    
+    <div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
+        <div class="bg-indigo-600 p-6 text-white text-center font-bold text-xl">Super Admin Access</div>
+        
+        <form id="login-form" class="p-6">
+            <input type="password" id="pin" placeholder="Enter Master PIN" class="w-full p-3 border rounded mb-4 text-center tracking-[0.5em] font-bold">
+            <button type="submit" class="w-full bg-slate-900 text-white p-3 rounded font-bold">Unlock</button>
+        </form>
+
+        <form id="settings-form" class="p-6 hidden">
+            <label class="block font-bold mb-2 text-sm text-slate-700">Deadline Date (Logic trigger)</label>
+            <input type="date" id="date" class="w-full p-3 border rounded mb-4 bg-slate-50">
+            
+            <label class="block font-bold mb-2 text-sm text-slate-700">Display Text (Odia)</label>
+            <input type="text" id="text-odia" class="w-full p-3 border rounded mb-4 bg-slate-50" placeholder="e.g. ଅଗଷ୍ଟ ୩୧, ୨୦୨୬">
+
+            <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded font-bold">Save Changes</button>
+            <p id="msg" class="text-center text-sm font-bold text-green-600 mt-4 hidden">Saved Successfully!</p>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'nlp-odisha';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "AIzaSyD3HN5SCXq0dQ94wP73PHTJdwjNVAJOJm8", authDomain: "livequizapp-5e433.firebaseapp.com", databaseURL: "https://livequizapp-5e433-default-rtdb.firebaseio.com", projectId: "livequizapp-5e433", storageBucket: "livequizapp-5e433.firebasestorage.app", messagingSenderId: "393541118458", appId: "1:393541118458:web:76620000b8f08e87561c43" };
+
+        let db, auth;
+        
+        async function initApp() {
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) await signInWithCustomToken(auth, __initial_auth_token);
+            else await signInAnonymously(auth);
+        }
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (document.getElementById('pin').value === 'SUPERADMIN123') {
+                document.getElementById('login-form').classList.add('hidden');
+                document.getElementById('settings-form').classList.remove('hidden');
+            } else alert('Incorrect PIN');
+        });
+
+        document.getElementById('settings-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const data = {
+                deadlineDate: document.getElementById('date').value,
+                deadlineTextOdia: document.getElementById('text-odia').value
+            };
+            await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config'), data, { merge: true });
+            document.getElementById('msg').classList.remove('hidden');
+            setTimeout(() => document.getElementById('msg').classList.add('hidden'), 3000);
+        });
+
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>

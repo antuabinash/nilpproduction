@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NLP Admin Portal - District Level</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .loader { border-top-color: #4f46e5; animation: spinner 1.5s linear infinite; }
+        @keyframes spinner { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+</head>
+<body class="text-slate-800 min-h-screen flex flex-col">
+
+    <nav class="bg-slate-900 shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 bg-rose-600 rounded-lg flex items-center justify-center text-white font-bold text-xl"><i class="fa-solid fa-user-shield"></i></div>
+                    <span class="font-bold text-xl text-white tracking-tight">NLP Admin Dashboard</span>
+                </div>
+                <div class="flex items-center gap-4">
+                    <button id="btn-logout" class="hidden text-sm text-slate-300 hover:text-white bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
+                        <i class="fa-solid fa-right-from-bracket mr-2"></i> Logout
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-full max-w-7xl mx-auto px-4 py-8 relative">
+        <section id="section-login" class="max-w-md mx-auto mt-10">
+            <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200">
+                <div class="bg-rose-600 px-6 py-6 text-center">
+                    <h2 class="text-2xl font-bold text-white">District Admin Login</h2>
+                </div>
+                <div class="p-8">
+                    <form id="login-form" class="space-y-5">
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">District</label>
+                            <select id="login-district" required class="w-full px-4 py-3 border rounded-xl bg-slate-50">
+                                <option value="" disabled selected>Select District...</option>
+                                <option value="ANGUL">Angul</option><option value="BALANGIR">Balangir</option><option value="BALASORE">Balasore</option>
+                                <option value="BARGARH">Bargarh</option><option value="BHADRAK">Bhadrak</option><option value="BOUDH">Boudh</option>
+                                <option value="CUTTACK">Cuttack</option><option value="DEOGARH">Deogarh</option><option value="DHENKANAL">Dhenkanal</option>
+                                <option value="GAJAPATI">Gajapati</option><option value="GANJAM">Ganjam</option><option value="JAGATSINGHPUR">Jagatsinghpur</option>
+                                <option value="JAJPUR">Jajpur</option><option value="JHARSUGUDA">Jharsuguda</option><option value="KALAHANDI">Kalahandi</option>
+                                <option value="KANDHAMAL">Kandhamal</option><option value="KENDRAPARA">Kendrapara</option><option value="KEONJHAR">Keonjhar</option>
+                                <option value="KHORDHA">Khordha</option><option value="KORAPUT">Koraput</option><option value="MALKANGIRI">Malkangiri</option>
+                                <option value="MAYURBHANJ">Mayurbhanj</option><option value="NABARANGPUR">Nabarangpur</option><option value="NAYAGARH">Nayagarh</option>
+                                <option value="NUAPADA">Nuapada</option><option value="PURI">Puri</option><option value="RAYAGADA">Rayagada</option>
+                                <option value="SAMBALPUR">Sambalpur</option><option value="SUBARNAPUR">Subarnapur</option><option value="SUNDARGARH">Sundargarh</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold mb-1">Admin PIN</label>
+                            <input type="password" id="login-pin" required class="w-full px-4 py-3 border rounded-xl bg-slate-50" placeholder="e.g. CUTTACK123">
+                        </div>
+                        <div id="login-error" class="hidden text-sm text-red-600 bg-red-50 border border-red-200 rounded-lg p-3">Incorrect PIN.</div>
+                        <button type="submit" class="w-full py-3 bg-slate-900 text-white rounded-xl font-bold shadow-lg">Access Dashboard</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-dashboard" class="hidden">
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 mb-6 flex justify-between items-center">
+                <div>
+                    <h1 class="text-2xl font-bold flex items-center gap-3"><span id="display-district-name">DISTRICT</span> Data</h1>
+                </div>
+                <div class="flex gap-4">
+                    <button id="btn-export-csv" class="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-xl font-bold flex items-center gap-2">
+                        <i class="fa-solid fa-file-excel"></i> Export CSV
+                    </button>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden overflow-x-auto">
+                <table class="w-full text-left whitespace-nowrap">
+                    <thead>
+                        <tr class="bg-slate-50 text-slate-600 text-sm uppercase border-b">
+                            <th class="p-4">Teacher Name & Phone</th>
+                            <th class="p-4">School (UDISE)</th>
+                            <th class="p-4">Enrollments</th>
+                            <th class="p-4 text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-tbody" class="divide-y divide-slate-100"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals for details and deletion -->
+    <div id="modal-details" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-slate-900/60 p-4">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] flex flex-col overflow-hidden">
+            <div class="bg-slate-900 px-6 py-4 flex justify-between"><h3 class="text-white font-bold">Details</h3><button class="close-details text-white"><i class="fa-solid fa-xmark"></i></button></div>
+            <div class="p-6 overflow-y-auto" id="details-content"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, query, where, onSnapshot, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'nlp-odisha';
+        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "AIzaSyD3HN5SCXq0dQ94wP73PHTJdwjNVAJOJm8", authDomain: "livequizapp-5e433.firebaseapp.com", databaseURL: "https://livequizapp-5e433-default-rtdb.firebaseio.com", projectId: "livequizapp-5e433", storageBucket: "livequizapp-5e433.firebasestorage.app", messagingSenderId: "393541118458", appId: "1:393541118458:web:76620000b8f08e87561c43" };
+
+        let db, auth;
+        let districtNominations = [];
+        let currentAdminDistrict = null;
+
+        async function initApp() {
+            const app = initializeApp(firebaseConfig);
+            auth = getAuth(app);
+            db = getFirestore(app);
+            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) await signInWithCustomToken(auth, __initial_auth_token);
+            else await signInAnonymously(auth);
+        }
+
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const district = document.getElementById('login-district').value;
+            const pin = document.getElementById('login-pin').value;
+            if (pin === district + "123") {
+                currentAdminDistrict = district;
+                document.getElementById('section-login').classList.add('hidden');
+                document.getElementById('section-dashboard').classList.remove('hidden');
+                document.getElementById('btn-logout').classList.remove('hidden');
+                document.getElementById('display-district-name').textContent = district;
+                loadData();
+            } else { document.getElementById('login-error').classList.remove('hidden'); }
+        });
+
+        document.getElementById('btn-logout').addEventListener('click', () => location.reload());
+
+        function loadData() {
+            const q = query(collection(db, 'artifacts', appId, 'public', 'data', 'nominations'), where('district', '==', currentAdminDistrict));
+            onSnapshot(q, (snap) => {
+                districtNominations = [];
+                snap.forEach(doc => districtNominations.push({id: doc.id, ...doc.data()}));
+                renderTable();
+            });
+        }
+
+        function renderTable() {
+            const tbody = document.getElementById('admin-tbody');
+            tbody.innerHTML = '';
+            districtNominations.forEach(nom => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td class="p-4"><div class="font-bold">${nom.teacherName}</div><div class="text-xs">${nom.phone}</div></td>
+                    <td class="p-4"><div class="font-bold">${nom.schoolName}</div><div class="text-xs font-mono">${nom.udiseCode}</div></td>
+                    <td class="p-4 font-bold text-emerald-600">${nom.learnersEnrolled}</td>
+                    <td class="p-4 text-center">
+                        <button class="bg-blue-100 text-blue-700 px-3 py-1 rounded font-bold mr-2" onclick="view('${nom.id}')">View</button>
+                        <button class="bg-red-100 text-red-700 px-3 py-1 rounded font-bold" onclick="del('${nom.id}')">Delete</button>
+                    </td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        window.view = (id) => {
+            const nom = districtNominations.find(n => n.id === id);
+            document.getElementById('details-content').innerHTML = `
+                <div class="grid grid-cols-2 gap-4">
+                    <div><p class="font-bold">Photo:</p><img src="${nom.photoUrl}" class="w-32 h-32 object-cover rounded shadow"></div>
+                    <div><p class="font-bold">Proof Screenshot:</p><img src="${nom.proofUrl}" class="w-full rounded shadow border"></div>
+                </div>
+            `;
+            document.getElementById('modal-details').classList.remove('hidden');
+        };
+        document.querySelector('.close-details').onclick = () => document.getElementById('modal-details').classList.add('hidden');
+
+        window.del = async (id) => {
+            if(confirm("Permanently delete this entry? Warning: This will not automatically reverse the scoreboard count.")) {
+                await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'nominations', id));
+            }
+        };
+
+        document.getElementById('btn-export-csv').addEventListener('click', () => {
+            let csv = 'Teacher Name,Phone,District,Block,Cluster,School,UDISE,Enrolled\n';
+            districtNominations.forEach(n => {
+                csv += `"${n.teacherName}","${n.phone}","${n.district}","${n.block}","${n.cluster}","${n.schoolName}","${n.udiseCode}",${n.learnersEnrolled}\n`;
+            });
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.setAttribute('href', url);
+            a.setAttribute('download', `${currentAdminDistrict}_Nominations.csv`);
+            a.click();
+        });
+
+        window.addEventListener('DOMContentLoaded', initApp);
+    </script>
+</body>
+</html>
