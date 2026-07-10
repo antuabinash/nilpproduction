@@ -170,7 +170,12 @@
                                 </div>
                                 <div>
                                     <label class="block text-sm font-semibold text-slate-700 mb-1.5">ପିନ୍ ନିଶ୍ଚିତ କରନ୍ତୁ *</label>
-                                    <input type="password" id="teacher-pin-confirm" pattern="[0-9]{4}" title="Must be exactly 4 digits" maxlength="4" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white tracking-widest text-center text-lg font-bold" placeholder="• • • •">
+                                    <div class="relative">
+                                        <input type="password" id="teacher-pin-confirm" pattern="[0-9]{4}" title="Must be exactly 4 digits" maxlength="4" required class="w-full pl-4 pr-10 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white tracking-widest text-center text-lg font-bold" placeholder="• • • •">
+                                        <button type="button" id="toggle-pin-confirm" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-indigo-600 transition-colors">
+                                            <i class="fa-solid fa-eye"></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                             <p class="text-[11px] text-slate-500 mt-1 font-medium -mt-2"><i class="fa-solid fa-key"></i> ଭବିଷ୍ୟତରେ ଆପଣଙ୍କ ସ୍କୋର ଅପଡେଟ୍ କରିବାକୁ ଏହି ପିନ୍ ମନେରଖନ୍ତୁ | (Remember this PIN)</p>
@@ -219,12 +224,13 @@
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-indigo-500"></i> ପ୍ରମାଣପତ୍ର ଅପଲୋଡ୍ (Secure Upload)</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative group">
-                                    <input type="file" id="file-photo" accept="image/jpeg, image/png, image/jpg" required class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
+                                    <!-- NOTE: Removed 'required' to make photo optional -->
+                                    <input type="file" id="file-photo" accept="image/jpeg, image/png, image/jpg" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                                     <div class="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center group-hover:border-indigo-400 bg-white transition-all">
                                         <div id="preview-photo-container" class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200">
                                             <i class="fa-solid fa-user-tie text-2xl text-slate-400"></i>
                                         </div>
-                                        <p class="text-sm font-bold text-slate-700">ଶିକ୍ଷକଙ୍କ ଫଟୋ (Teacher Photo) *</p>
+                                        <p class="text-sm font-bold text-slate-700">ଶିକ୍ଷକଙ୍କ ଫଟୋ (Teacher Photo) <span class="text-indigo-500 ml-1">- Optional</span></p>
                                         <p class="text-xs text-slate-500 mt-1 font-medium" id="file-photo-name">Touch here to select photo</p>
                                     </div>
                                 </div>
@@ -278,7 +284,12 @@
                             </div>
                             <div>
                                 <label class="block text-sm font-semibold text-slate-700 mb-1.5">୪-ଅଙ୍କ ପିନ୍ (4-Digit PIN) *</label>
-                                <input type="password" id="up-pin" pattern="[0-9]{4}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-[1em] font-bold text-xl" placeholder="••••">
+                                <div class="relative">
+                                    <input type="password" id="up-pin" pattern="[0-9]{4}" required class="w-full pl-4 pr-10 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-[1em] font-bold text-xl" placeholder="••••">
+                                    <button type="button" id="toggle-up-pin" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-cyan-600 transition-colors">
+                                        <i class="fa-solid fa-eye"></i>
+                                    </button>
+                                </div>
                             </div>
                             <button type="submit" id="btn-up-login" class="w-full py-3 mt-2 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 font-bold shadow flex justify-center items-center gap-2">
                                 ଲଗ୍ ଇନ୍ (Login)
@@ -364,12 +375,18 @@
         <section id="section-success" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-xl border-t-4 border-green-500 overflow-hidden mb-12 p-10 md:p-16 flex flex-col items-center justify-center text-center">
                 <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white"><i class="fa-solid fa-check text-5xl text-green-600"></i></div>
-                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">ପ୍ରକ୍ରିୟା ସଫଳ ହେଲା!</h2>
-                <h3 class="text-xl font-bold text-slate-600 mb-6">(Success)</h3>
-                <p class="text-slate-600 mb-8 max-w-2xl font-medium leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                    ଆପଣଙ୍କର ତଥ୍ୟ ସଫଳତାର ସହ ସେଭ୍ ହୋଇଛି | ଲିଡରବୋର୍ଡରେ ଆପଣଙ୍କର ଅଗ୍ରଗତି ଦେଖନ୍ତୁ |
+                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">ଆବେଦନ ସଫଳ ହେଲା!</h2>
+                <h3 class="text-xl font-bold text-slate-600 mb-6">(Application Successful)</h3>
+                
+                <p class="text-slate-700 font-medium mb-8 leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-200 shadow-sm max-w-2xl text-lg">
+                    ଲିଡରବୋର୍ଡରେ ଶୀର୍ଷରେ ରହିବା ପାଇଁ ଦୟାକରି ଅଧିକରୁ ଅଧିକ ନାମଲେଖା (Enrollment) ଯୋଡନ୍ତୁ, ଏହି ସୁଯୋଗ ହାତଛଡ଼ା କରନ୍ତୁ ନାହିଁ! ଏହାସହିତ ଆପଣଙ୍କର ଅଂଶଗ୍ରହଣ ପ୍ରମାଣପତ୍ର ମଧ୍ୟ ଏଠାରୁ ଡାଉନଲୋଡ୍ କରନ୍ତୁ ।
+                    <br><br>
+                    <span class="text-sm text-indigo-700 block bg-indigo-50/50 p-3 rounded-xl border border-indigo-100">
+                        Please add more enrollments to top in the leaderboard, don't miss the opportunity! Plus, download your participation certificate from there too.
+                    </span>
                 </p>
-                <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all">ହୋମ୍ କୁ ଫେରନ୍ତୁ</button>
+
+                <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all">ହୋମ୍ କୁ ଫେରନ୍ତୁ (Home)</button>
             </div>
         </section>
 
@@ -396,7 +413,12 @@
                         </div>
                         <div>
                             <label class="block text-sm font-semibold text-slate-700 mb-1.5">୪-ଅଙ୍କ ପିନ୍ (4-Digit PIN) *</label>
-                            <input type="password" id="cert-pin" pattern="[0-9]{4}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-[1em] font-bold text-xl" placeholder="••••">
+                            <div class="relative">
+                                <input type="password" id="cert-pin" pattern="[0-9]{4}" required class="w-full pl-4 pr-10 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-[1em] font-bold text-xl" placeholder="••••">
+                                <button type="button" id="toggle-cert-pin" class="absolute inset-y-0 right-0 pr-3 flex items-center text-slate-400 hover:text-amber-600 transition-colors">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
                         </div>
                         <button type="submit" id="btn-cert-login" class="w-full py-3 mt-2 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow-lg flex justify-center items-center gap-2 transition-all">
                             ଲଗ୍ ଇନ୍ (Login)
@@ -408,7 +430,7 @@
                 <div id="cert-download-div" class="hidden w-full text-center">
                     <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto shadow-inner border-4 border-white"><i class="fa-solid fa-check text-4xl text-green-500"></i></div>
                     <h2 class="text-2xl font-black text-slate-800 mb-1" id="cert-disp-name">Teacher Name</h2>
-                    <p class="text-slate-500 font-medium mb-8">Your certificate is ready!</p>
+                    <p class="text-slate-500 font-medium mb-8">Your participation certificate is ready!</p>
                     
                     <button id="btn-download-cert" class="px-8 py-4 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-black shadow-xl text-lg flex items-center justify-center gap-3 mx-auto transition-transform hover:scale-105 border-2 border-amber-600">
                         <i class="fa-solid fa-download"></i> ସାର୍ଟିଫିକେଟ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ 
@@ -521,7 +543,6 @@
         let currentUser = null;
         let isFirebaseReady = false;
 
-        // Global variables for Update/Cert Flow
         let activeTeacherRef = null;
         let activeTeacherData = null;
         let certTeacherName = "";
@@ -608,16 +629,25 @@
         
         document.querySelectorAll('.close-section').forEach(btn => btn.addEventListener('click', () => { hideAllSections(); window.scrollTo({top:0}); }));
 
-        // Toggle PIN Visibility
-        document.getElementById('toggle-pin').addEventListener('click', () => {
-            const pinInput = document.getElementById('teacher-pin');
-            const icon = document.querySelector('#toggle-pin i');
-            if(pinInput.type === 'password') {
-                pinInput.type = 'text'; icon.classList.replace('fa-eye', 'fa-eye-slash');
-            } else {
-                pinInput.type = 'password'; icon.classList.replace('fa-eye-slash', 'fa-eye');
+        // Toggle PIN Visibilities dynamically
+        const setupPinToggle = (btnId, inputId) => {
+            const btn = document.getElementById(btnId);
+            if(btn) {
+                btn.addEventListener('click', () => {
+                    const pinInput = document.getElementById(inputId);
+                    const icon = btn.querySelector('i');
+                    if(pinInput.type === 'password') {
+                        pinInput.type = 'text'; icon.classList.replace('fa-eye', 'fa-eye-slash');
+                    } else {
+                        pinInput.type = 'password'; icon.classList.replace('fa-eye-slash', 'fa-eye');
+                    }
+                });
             }
-        });
+        };
+        setupPinToggle('toggle-pin', 'teacher-pin');
+        setupPinToggle('toggle-pin-confirm', 'teacher-pin-confirm');
+        setupPinToggle('toggle-up-pin', 'up-pin');
+        setupPinToggle('toggle-cert-pin', 'cert-pin');
 
         function compressImage(file, isAvatar = false) {
             return new Promise((resolve, reject) => {
@@ -663,7 +693,6 @@
             });
         });
 
-        // Add file listener for UPDATE proof
         document.getElementById('update-file-proof').addEventListener('change', (e) => {
             if(e.target.files.length > 0) {
                 const file = e.target.files[0];
@@ -707,15 +736,22 @@
                     return;
                 }
 
-                const photoB64 = await compressImage(document.getElementById('file-photo').files[0], true);
-                const proofB64 = await compressImage(document.getElementById('file-proof').files[0], false);
                 const ts = Date.now();
-                const photoRef = ref(storage, `artifacts/${appId}/public/data/uploads/${ts}_photo.jpg`);
-                const proofRef = ref(storage, `artifacts/${appId}/public/data/uploads/${ts}_proof.jpg`);
                 
-                await uploadString(photoRef, photoB64, 'data_url');
+                // Process Photo (Optional)
+                let photoUrl = "https://placehold.co/150x150/e2e8f0/64748b?text=No+Photo";
+                const photoFile = document.getElementById('file-photo').files[0];
+                if (photoFile) {
+                    const photoB64 = await compressImage(photoFile, true);
+                    const photoRef = ref(storage, `artifacts/${appId}/public/data/uploads/${ts}_photo.jpg`);
+                    await uploadString(photoRef, photoB64, 'data_url');
+                    photoUrl = await getDownloadURL(photoRef);
+                }
+
+                // Process Proof (Required)
+                const proofB64 = await compressImage(document.getElementById('file-proof').files[0], false);
+                const proofRef = ref(storage, `artifacts/${appId}/public/data/uploads/${ts}_proof.jpg`);
                 await uploadString(proofRef, proofB64, 'data_url');
-                const photoUrl = await getDownloadURL(photoRef);
                 const proofUrl = await getDownloadURL(proofRef);
 
                 const batch = writeBatch(db);
@@ -743,11 +779,13 @@
 
                 document.getElementById('nomination-form').reset();
                 document.getElementById('teacher-pin').type = 'password';
+                document.getElementById('teacher-pin-confirm').type = 'password';
                 document.querySelector('#toggle-pin i').classList.replace('fa-eye-slash', 'fa-eye');
+                document.querySelector('#toggle-pin-confirm i').classList.replace('fa-eye-slash', 'fa-eye');
                 
                 ['photo','proof'].forEach(t => {
                     document.getElementById(`preview-${t}-container`).innerHTML = `<i class="fa-solid fa-${t==='photo'?'user-tie':'mobile-screen'} text-2xl text-slate-400"></i>`;
-                    document.getElementById(`file-${t}-name`).textContent = 'Touch here to select';
+                    document.getElementById(`file-${t}-name`).textContent = t==='photo' ? 'Touch here to select photo (Optional)' : 'Touch here to select';
                 });
                 
                 hideAllSections();
@@ -869,7 +907,6 @@
             btn.disabled = true; spinner.classList.remove('hidden');
 
             try {
-                // Upload New Proof
                 const proofB64 = await compressImage(proofFile, false);
                 const ts = Date.now();
                 const proofRef = ref(storage, `artifacts/${appId}/public/data/uploads/${ts}_update_proof.jpg`);
@@ -959,19 +996,17 @@
             img.src = 'certificate_bg.png'; 
             
             img.onload = () => {
-                // Ensure the canvas is exactly 1600x1066 as requested
                 canvas.width = 1600;
                 canvas.height = 1066;
                 
                 ctx.drawImage(img, 0, 0, 1600, 1066);
                 
-                // Text styling for a premium look
-                ctx.font = "bold 64px sans-serif"; 
+                // Reduced Font size for flawless fitting at given coordinates
+                ctx.font = "bold 40px 'Inter', sans-serif"; 
                 ctx.fillStyle = "#1e293b"; // Dark slate color
                 ctx.textAlign = "center"; 
                 ctx.textBaseline = "middle";
                 
-                // Stamp the name exactly at the 787, 513 coordinates
                 ctx.fillText(certTeacherName.toUpperCase(), 787, 513);
                 
                 try {
@@ -1017,6 +1052,7 @@
                     districts.push(d);
                     overallTeachers += (d.teacherCount || 0);
                 });
+                // Sort Districts by Teacher Participation Count
                 districts.sort((a,b) => (b.teacherCount || 0) - (a.teacherCount || 0));
                 
                 document.getElementById('lb-total-teachers').textContent = overallTeachers.toLocaleString();
@@ -1058,7 +1094,7 @@
             document.getElementById('view-schools').classList.add('hidden');
 
             try {
-                // Fetch ONLY Top 20 teachers to save costs
+                // Fetch ONLY Top 20 teachers to strictly limit read costs
                 const nomRef = collection(db, 'artifacts', appId, 'public', 'data', 'nominations');
                 const q = query(
                     nomRef, 
@@ -1091,7 +1127,7 @@
                         tr.innerHTML = `
                             <td class="p-4 text-center">${badge}</td>
                             <td class="p-4 flex items-center gap-3">
-                                <img src="${t.photoUrl}" class="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NidTVlMSI+PHBhdGggZD0iTTEyIDJhNSA1IDAgMSAwIDAgMTAgNSA1IDAgMCAwIDAtMTB6bTAgMTFjLTQuNCAwLTggMi4yLTggNS41VjIyaDE2di0zLjVjMC0zLjMtMy42LTUuNS04LTUuNXoiLz48L3N2Zz4='">
+                                <img src="${t.photoUrl}" class="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm" onerror="this.src='https://placehold.co/150x150/e2e8f0/64748b?text=No+Photo'">
                                 <div>
                                     <div class="font-bold text-slate-800">${t.teacherName}</div>
                                     <div class="text-[11px] text-slate-500 max-w-[150px] truncate" title="${t.schoolName}">${t.schoolName}</div>
@@ -1109,7 +1145,6 @@
             } finally { document.getElementById('lb-loading').classList.add('hidden'); }
         }
 
-        // Helpers
         function showToast(title, msg, type = 'success') {
             const t = document.getElementById('custom-toast');
             document.getElementById('toast-title').textContent = title;
@@ -1122,10 +1157,8 @@
         }
         document.getElementById('close-toast').addEventListener('click', () => document.getElementById('custom-toast').classList.replace('toast-enter-active', 'toast-exit-active'));
 
-        // Boot
         window.addEventListener('DOMContentLoaded', initApp);
         
-        // Auto-cycle slider
         setInterval(() => {
             const next = document.querySelector('.slide.active').nextElementSibling;
             if(next && next.classList.contains('slide')) next.classList.add('active');
