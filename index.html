@@ -22,6 +22,12 @@
 </head>
 <body class="text-slate-800 min-h-screen flex flex-col">
 
+    <!-- TESTING BANNER -->
+    <div class="bg-red-600 text-white text-xs md:text-sm font-bold text-center py-2 px-4 relative z-[60] shadow-md tracking-wide">
+        <i class="fa-solid fa-flask-vial animate-pulse mr-1.5"></i> 
+        ଟେଷ୍ଟିଂ ମୋଡ୍ (TESTING MODE ACTIVE) - Data submitted during this 7-day period may be reset.
+    </div>
+
     <nav class="bg-white shadow-md sticky top-0 z-50 border-b-4 border-orange-500">
         <div class="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 sm:h-20 items-center">
@@ -69,17 +75,19 @@
                 <div class="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center animate-pulse shrink-0">
                     <i class="fa-solid fa-bell"></i>
                 </div>
-                <span class="font-medium text-sm md:text-base">ଆବେଦନ କରିବାର ଶେଷ ତାରିଖ: <strong class="text-red-600 ml-1" id="display-deadline">August 31, 2026</strong></span>
+                <!-- TEMPORARY DATE FOR TESTING -->
+                <span class="font-medium text-sm md:text-base">ଟେଷ୍ଟିଂ ଶେଷ ତାରିଖ (Testing Ends): <strong class="text-red-600 ml-1" id="display-deadline">July 17, 2026</strong></span>
             </div>
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             <!-- Apply Button -->
-            <button id="btn-show-form" class="group relative overflow-hidden bg-white border-2 border-blue-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-100">
+            <button id="btn-show-form" class="group relative overflow-hidden bg-white border-2 border-blue-600 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-blue-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-blue-100 text-blue-800 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-file-signature"></i></div>
                     <div>
+                        <!-- PANJIKARANA TEXT UPDATE -->
                         <h2 class="font-bold text-slate-800 mb-1">ପଞ୍ଜିକରଣ</h2>
                         <p class="text-slate-500 text-xs font-medium">ନୂଆ ଆବେଦନ କରନ୍ତୁ</p>
                     </div>
@@ -87,7 +95,7 @@
             </button>
 
             <!-- Update Score Button -->
-            <button id="btn-show-update" class="group relative overflow-hidden bg-white border-2 border-cyan-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-100">
+            <button id="btn-show-update" class="group relative overflow-hidden bg-white border-2 border-cyan-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-cyan-600 focus:outline-none focus:ring-4 focus:ring-cyan-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-cyan-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-cyan-100 text-cyan-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-arrow-trend-up"></i></div>
@@ -99,7 +107,7 @@
             </button>
 
             <!-- Leaderboard Button -->
-            <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white border-2 border-emerald-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-100">
+            <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white border-2 border-emerald-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-emerald-600 focus:outline-none focus:ring-4 focus:ring-emerald-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-emerald-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-emerald-100 text-emerald-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-ranking-star"></i></div>
@@ -111,7 +119,7 @@
             </button>
 
             <!-- Certificate Button -->
-            <button id="btn-show-certificate" class="group relative overflow-hidden bg-white border-2 border-amber-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-100">
+            <button id="btn-show-certificate" class="group relative overflow-hidden bg-white border-2 border-amber-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-amber-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-amber-100 text-amber-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-award"></i></div>
@@ -387,10 +395,10 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
-                    <button id="btn-success-to-cert" class="px-8 py-3.5 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow-lg transition-all flex items-center justify-center gap-2">
+                    <button id="btn-success-to-cert" class="px-8 py-3.5 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow-lg transition-all flex items-center justify-center gap-2 border-2 border-amber-600">
                         <i class="fa-solid fa-award"></i> ସାର୍ଟିଫିକେଟ୍ (Get Certificate)
                     </button>
-                    <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all flex items-center justify-center gap-2">
+                    <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all flex items-center justify-center gap-2 border-2 border-slate-900">
                         ହୋମ୍ କୁ ଫେରନ୍ତୁ (Home)
                     </button>
                 </div>
@@ -482,7 +490,7 @@
                         <i class="fa-solid fa-download"></i> ସାର୍ଟିଫିକେଟ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ 
                     </button>
                     
-                    <!-- Hidden canvas used for offline image rendering with 1600x1066 explicitly enforced in JS -->
+                    <!-- Hidden canvas used for offline image rendering -->
                     <canvas id="cert-canvas" class="hidden"></canvas>
                 </div>
             </div>
@@ -549,7 +557,7 @@
         </section>
     </main>
     
-    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800 mt-auto">
         <p class="font-medium text-slate-300 mb-2">© 2026 NILP Official Portal Odisha. All Rights Reserved.</p>
         <p class="flex items-center justify-center gap-2">
             <i class="fa-solid fa-shield-check text-emerald-500"></i> Secured by Firebase Enterprise Architecture
@@ -592,7 +600,7 @@
         let activeTeacherRef = null;
         let activeTeacherData = null;
         let certTeacherName = "";
-        let newlyRegisteredTeacherName = ""; // Add this to store the name temporarily after submission
+        let newlyRegisteredTeacherName = ""; 
 
         const odishaDistricts = {
             "ANGUL": "Angul (ଅନୁଗୋଳ)", "BALANGIR": "Balangir (ବଲାଙ୍ଗୀର)", "BALASORE": "Balasore (ବାଲେଶ୍ୱର)", 
@@ -677,7 +685,6 @@
 
         document.querySelectorAll('.close-section').forEach(btn => btn.addEventListener('click', () => { hideAllSections(); window.scrollTo({top:0}); }));
 
-        // Toggle PIN Visibilities dynamically
         const setupPinToggle = (btnId, inputId) => {
             const btn = document.getElementById(btnId);
             if(btn) {
@@ -786,7 +793,6 @@
 
                 const ts = Date.now();
                 
-                // Process Photo (Optional)
                 let photoUrl = "https://placehold.co/150x150/e2e8f0/64748b?text=No+Photo";
                 const photoFile = document.getElementById('file-photo').files[0];
                 if (photoFile) {
@@ -796,13 +802,11 @@
                     photoUrl = await getDownloadURL(photoRef);
                 }
 
-                // Process Proof (Required)
                 const proofB64 = await compressImage(document.getElementById('file-proof').files[0], false);
                 const proofRef = ref(storage, `artifacts/${appId}/public/data/uploads/${ts}_proof.jpg`);
                 await uploadString(proofRef, proofB64, 'data_url');
                 const proofUrl = await getDownloadURL(proofRef);
 
-                // Store the name globally so the immediate download button can use it
                 const teacherNameInput = document.getElementById('teacher-name').value.trim();
                 newlyRegisteredTeacherName = teacherNameInput;
 
@@ -1080,7 +1084,6 @@
             }
         });
 
-        // SHARED CANVAS GENERATOR FUNCTION FOR BOTH BUTTONS
         function generateCertificateImage(nameToPrint, btnElement) {
             const originalText = btnElement.innerHTML;
             btnElement.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating...`;
@@ -1099,7 +1102,6 @@
                 
                 ctx.drawImage(img, 0, 0, 1600, 1066);
                 
-                // Reduced font size from 40px to 38px
                 ctx.font = "bold 38px 'Inter', sans-serif"; 
                 ctx.fillStyle = "#1e293b"; 
                 ctx.textAlign = "center"; 
@@ -1129,17 +1131,14 @@
             };
         }
 
-        // 1. Event for Success Screen Button (Direct/Immediate Download)
         document.getElementById('btn-success-to-cert').addEventListener('click', function() {
             if (newlyRegisteredTeacherName) {
                 generateCertificateImage(newlyRegisteredTeacherName, this);
             } else {
-                // Fallback in case variable was lost
                 document.getElementById('btn-show-certificate').click();
             }
         });
 
-        // 2. Event for Returning Users Certificate Section (Login required)
         document.getElementById('btn-download-cert').addEventListener('click', function() {
             generateCertificateImage(certTeacherName, this);
         });
@@ -1165,7 +1164,6 @@
                     districts.push(d);
                     overallTeachers += (d.teacherCount || 0);
                 });
-                // Sort Districts by Teacher Participation Count
                 districts.sort((a,b) => (b.teacherCount || 0) - (a.teacherCount || 0));
                 
                 document.getElementById('lb-total-teachers').textContent = overallTeachers.toLocaleString();
@@ -1207,7 +1205,6 @@
             document.getElementById('view-schools').classList.add('hidden');
 
             try {
-                // Fetch ONLY Top 20 teachers to strictly limit read costs
                 const nomRef = collection(db, 'artifacts', appId, 'public', 'data', 'nominations');
                 const q = query(
                     nomRef, 
