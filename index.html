@@ -386,7 +386,14 @@
                     </span>
                 </p>
 
-                <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all">ହୋମ୍ କୁ ଫେରନ୍ତୁ (Home)</button>
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center">
+                    <button id="btn-success-to-cert" class="px-8 py-3.5 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow-lg transition-all flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-award"></i> ସାର୍ଟିଫିକେଟ୍ (Get Certificate)
+                    </button>
+                    <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all flex items-center justify-center gap-2">
+                        ହୋମ୍ କୁ ଫେରନ୍ତୁ (Home)
+                    </button>
+                </div>
             </div>
         </section>
 
@@ -546,6 +553,7 @@
         let activeTeacherRef = null;
         let activeTeacherData = null;
         let certTeacherName = "";
+        let newlyRegisteredTeacherName = ""; // Add this to store the name temporarily after submission
 
         const odishaDistricts = {
             "ANGUL": "Angul (ଅନୁଗୋଳ)", "BALANGIR": "Balangir (ବଲାଙ୍ଗୀର)", "BALASORE": "Balasore (ବାଲେଶ୍ୱର)", 
@@ -627,6 +635,8 @@
             document.getElementById('cert-login-form').reset();
         });
         
+        // (We are moving the btn-success-to-cert click listener further down to use a shared function)
+
         document.querySelectorAll('.close-section').forEach(btn => btn.addEventListener('click', () => { hideAllSections(); window.scrollTo({top:0}); }));
 
         // Toggle PIN Visibilities dynamically
@@ -754,10 +764,14 @@
                 await uploadString(proofRef, proofB64, 'data_url');
                 const proofUrl = await getDownloadURL(proofRef);
 
+                // Store the name globally so the immediate download button can use it
+                const teacherNameInput = document.getElementById('teacher-name').value.trim();
+                newlyRegisteredTeacherName = teacherNameInput;
+
                 const batch = writeBatch(db);
                 const nomRef = doc(collection(db, 'artifacts', appId, 'public', 'data', 'nominations'));
                 batch.set(nomRef, {
-                    teacherName: document.getElementById('teacher-name').value.trim(),
+                    teacherName: teacherNameInput,
                     phone: phone,
                     securityPin: pin,
                     district: district,
@@ -982,11 +996,11 @@
             }
         });
 
-        document.getElementById('btn-download-cert').addEventListener('click', () => {
-            const btn = document.getElementById('btn-download-cert');
-            const originalText = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating...`;
-            btn.disabled = true;
+        // SHARED CANVAS GENERATOR FUNCTION FOR BOTH BUTTONS
+        function generateCertificateImage(nameToPrint, btnElement) {
+            const originalText = btnElement.innerHTML;
+            btnElement.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Generating...`;
+            btnElement.disabled = true;
 
             const canvas = document.getElementById('cert-canvas');
             const ctx = canvas.getContext('2d');
@@ -1001,18 +1015,17 @@
                 
                 ctx.drawImage(img, 0, 0, 1600, 1066);
                 
-                // Reduced Font size for flawless fitting at given coordinates
                 ctx.font = "bold 40px 'Inter', sans-serif"; 
-                ctx.fillStyle = "#1e293b"; // Dark slate color
+                ctx.fillStyle = "#1e293b"; 
                 ctx.textAlign = "center"; 
                 ctx.textBaseline = "middle";
                 
-                ctx.fillText(certTeacherName.toUpperCase(), 787, 513);
+                ctx.fillText(nameToPrint.toUpperCase(), 787, 513);
                 
                 try {
                     const dataUrl = canvas.toDataURL('image/png');
                     const link = document.createElement('a');
-                    link.download = `NILP_Certificate_${certTeacherName.replace(/\s+/g, '_')}.png`;
+                    link.download = `NILP_Certificate_${nameToPrint.replace(/\s+/g, '_')}.png`;
                     link.href = dataUrl;
                     link.click();
                     showToast('Success', 'Certificate downloaded successfully!', 'success');
@@ -1020,15 +1033,30 @@
                     showToast('Error', 'Browser security blocked image generation. Ensure certificate_bg.png is uploaded.', 'error');
                 }
                 
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                btnElement.innerHTML = originalText;
+                btnElement.disabled = false;
             };
 
             img.onerror = () => {
                 showToast('Error', 'Could not load certificate_bg.png. Ensure it is uploaded to the repository.', 'error');
-                btn.innerHTML = originalText;
-                btn.disabled = false;
+                btnElement.innerHTML = originalText;
+                btnElement.disabled = false;
             };
+        }
+
+        // 1. Event for Success Screen Button (Direct/Immediate Download)
+        document.getElementById('btn-success-to-cert').addEventListener('click', function() {
+            if (newlyRegisteredTeacherName) {
+                generateCertificateImage(newlyRegisteredTeacherName, this);
+            } else {
+                // Fallback in case variable was lost
+                document.getElementById('btn-show-certificate').click();
+            }
+        });
+
+        // 2. Event for Returning Users Certificate Section (Login required)
+        document.getElementById('btn-download-cert').addEventListener('click', function() {
+            generateCertificateImage(certTeacherName, this);
         });
 
         // --- LEADERBOARD LOGIC ---
