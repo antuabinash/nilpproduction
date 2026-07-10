@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLP ସୁବିଧା ପୋର୍ଟାଲ୍ | Official Portal</title>
+    <title>NILP ସୁବିଧା ପୋର୍ଟାଲ୍ | Official Portal</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -16,7 +16,6 @@
         .toast-enter-active { transform: translateY(0); opacity: 1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
         .toast-exit-active { transform: translateY(100%); opacity: 0; transition: all 0.3s ease-in; }
         .gov-gradient { background: linear-gradient(90deg, #0f172a 0%, #1e3a8a 100%); }
-        /* Hide scrollbar for clean horizontal tables */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
@@ -31,7 +30,7 @@
                         <i class="fa-solid fa-graduation-cap"></i>
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-extrabold text-lg text-slate-800 leading-tight">NLP ପୋର୍ଟାଲ୍</span>
+                        <span class="font-extrabold text-lg text-slate-800 leading-tight">NILP ପୋର୍ଟାଲ୍</span>
                         <span class="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Official Portal Odisha</span>
                     </div>
                 </div>
@@ -55,20 +54,15 @@
                 <i class="fa-solid fa-shield-halved"></i> Government Approved Initiative
             </div>
             <h1 class="text-3xl md:text-5xl font-black text-white mb-4 drop-shadow-2xl leading-tight tracking-tight">
-                NLP ମାଧ୍ୟମରେ ଶିକ୍ଷାର <br class="hidden md:block"/> ସଶକ୍ତିକରଣ
+                NILP ମାଧ୍ୟମରେ ଶିକ୍ଷାର <br class="hidden md:block"/> ସଶକ୍ତିକରଣ
             </h1>
             <p class="text-slate-100 text-lg md:text-xl max-w-2xl mb-8 drop-shadow-md font-medium">
-                ମୌଳିକ ସାକ୍ଷରତା ଏବଂ ସଂଖ୍ୟାଜ୍ଞାନ ବୃଦ୍ଧି ପାଇଁ ଏହି ପଦକ୍ଷେପରେ ଯୋଗ ଦିଅନ୍ତୁ | ବିଦ୍ୟାଳୟକୁ ମନୋନୀତ କରନ୍ତୁ ଏବଂ ଜିଲ୍ଲାଗୁଡ଼ିକରେ ଅଗ୍ରଗତି ଟ୍ରାକ୍ କରନ୍ତୁ |
+                ମୌଳିକ ସାକ୍ଷରତା ଏବଂ ସଂଖ୍ୟାଜ୍ଞାନ ବୃଦ୍ଧି ପାଇଁ ଏହି ପଦକ୍ଷେପରେ ଯୋଗ ଦିଅନ୍ତୁ | ଶିକ୍ଷକମାନଙ୍କର ଅଗ୍ରଗତି ଟ୍ରାକ୍ କରନ୍ତୁ |
             </p>
-        </div>
-        <div class="absolute bottom-4 left-0 right-0 z-30 flex justify-center gap-2" id="slide-indicators">
-            <button class="w-2.5 h-2.5 rounded-full bg-white opacity-100 transition-opacity shadow-lg"></button>
-            <button class="w-2.5 h-2.5 rounded-full bg-white opacity-40 transition-opacity shadow-lg"></button>
-            <button class="w-2.5 h-2.5 rounded-full bg-white opacity-40 transition-opacity shadow-lg"></button>
         </div>
     </header>
 
-    <main class="flex-grow w-full max-w-5xl mx-auto px-4 py-8 -mt-8 relative z-30">
+    <main class="flex-grow w-full max-w-6xl mx-auto px-4 py-8 -mt-8 relative z-30">
         
         <div class="mb-6 flex justify-center">
             <div class="bg-white border-2 border-red-500/20 text-slate-800 px-6 py-3 rounded-full shadow-lg flex items-center gap-3 animate-fade-in-up">
@@ -79,41 +73,57 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-            <button id="btn-show-form" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-left border-b-4 border-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-100">
-                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-indigo-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <!-- Apply Button -->
+            <button id="btn-show-form" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-indigo-600 focus:outline-none focus:ring-4 focus:ring-indigo-100">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-indigo-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
-                    <div class="bg-indigo-100 text-indigo-700 w-12 h-12 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-file-signature text-xl"></i></div>
+                    <div class="bg-indigo-100 text-indigo-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-file-signature"></i></div>
                     <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-indigo-700 transition-colors">ମନୋନୟନ ପାଇଁ ଆବେଦନ</h2>
-                        <p class="text-slate-500 text-xs font-medium leading-relaxed">ଜଣେ ଶିକ୍ଷକ ଭାବରେ ପଞ୍ଜୀକରଣ କରନ୍ତୁ |</p>
+                        <h2 class="font-bold text-slate-800 mb-1">ମନୋନୟନ</h2>
+                        <p class="text-slate-500 text-xs font-medium">ନୂଆ ଆବେଦନ କରନ୍ତୁ</p>
                     </div>
                 </div>
             </button>
 
-            <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-left border-b-4 border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-100">
-                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-emerald-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
+            <!-- Update Score Button -->
+            <button id="btn-show-update" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-100">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-cyan-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
-                    <div class="bg-emerald-100 text-emerald-700 w-12 h-12 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-ranking-star text-xl"></i></div>
+                    <div class="bg-cyan-100 text-cyan-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-arrow-trend-up"></i></div>
                     <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-emerald-700 transition-colors">ଲିଡରବୋର୍ଡ ଦେଖନ୍ତୁ</h2>
-                        <p class="text-slate-500 text-xs font-medium leading-relaxed">ଜିଲ୍ଲା ଏବଂ ବିଦ୍ୟାଳୟ ଅନୁଯାୟୀ ପ୍ରଦର୍ଶନ ଟ୍ରାକ୍ କରନ୍ତୁ |</p>
+                        <h2 class="font-bold text-slate-800 mb-1">ସ୍କୋର୍ ଅପଡେଟ୍</h2>
+                        <p class="text-slate-500 text-xs font-medium">ଆପଣଙ୍କର ସ୍କୋର ବଢାନ୍ତୁ</p>
                     </div>
                 </div>
             </button>
 
-            <button id="btn-show-certificate" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-6 text-left border-b-4 border-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-100">
-                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-amber-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
+            <!-- Leaderboard Button -->
+            <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-100">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-emerald-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
-                    <div class="bg-amber-100 text-amber-700 w-12 h-12 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-award text-xl"></i></div>
+                    <div class="bg-emerald-100 text-emerald-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-ranking-star"></i></div>
                     <div>
-                        <h2 class="text-lg font-bold text-slate-800 mb-1 group-hover:text-amber-700 transition-colors">ସାର୍ଟିଫିକେଟ୍ ଡାଉନଲୋଡ୍</h2>
-                        <p class="text-slate-500 text-xs font-medium leading-relaxed">ଆବେଦନ ପରେ ପ୍ରମାଣପତ୍ର ପ୍ରାପ୍ତ କରନ୍ତୁ |</p>
+                        <h2 class="font-bold text-slate-800 mb-1">ଲିଡରବୋର୍ଡ</h2>
+                        <p class="text-slate-500 text-xs font-medium">ପ୍ରଦର୍ଶନ ଟ୍ରାକ୍ କରନ୍ତୁ</p>
+                    </div>
+                </div>
+            </button>
+
+            <!-- Certificate Button -->
+            <button id="btn-show-certificate" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-100">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-amber-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
+                <div class="relative z-10 flex flex-col h-full justify-between">
+                    <div class="bg-amber-100 text-amber-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <h2 class="font-bold text-slate-800 mb-1">ସାର୍ଟିଫିକେଟ୍</h2>
+                        <p class="text-slate-500 text-xs font-medium">ପ୍ରମାଣପତ୍ର ଡାଉନଲୋଡ୍</p>
                     </div>
                 </div>
             </button>
         </div>
 
+        <!-- NOMINATION FORM SECTION -->
         <section id="section-form" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-2xl overflow-hidden mb-12 border-t-4 border-indigo-600">
                 <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center">
@@ -129,10 +139,11 @@
                 <form id="nomination-form" class="p-6 md:p-8 bg-white/50">
                     <div class="bg-blue-50 border border-blue-100 rounded-xl p-4 mb-8 flex gap-3 text-blue-800 text-sm">
                         <i class="fa-solid fa-circle-info mt-0.5"></i>
-                        <div>ଦୟାକରି ସମସ୍ତ ତଥ୍ୟ ସଠିକ୍ ଭାବରେ ପୂରଣ କରନ୍ତୁ | ସମସ୍ତ ତଥ୍ୟ ସରକାରୀ ଯାଞ୍ଚ ପାଇଁ ରେକର୍ଡ କରାଯିବ |</div>
+                        <div>ଏକାଧିକ ଶିକ୍ଷକ ଗୋଟିଏ ବିଦ୍ୟାଳୟରୁ ଆବେଦନ କରିପାରିବେ | ପ୍ରତ୍ୟେକ ଶିକ୍ଷକ ନିଜର ସ୍ୱତନ୍ତ୍ର ଫୋନ୍ ନମ୍ବର ବ୍ୟବହାର କରିବା ଆବଶ୍ୟକ |</div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Personal Details -->
                         <div class="space-y-5">
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-regular fa-id-badge text-indigo-500"></i> ବ୍ୟକ୍ତିଗତ ବିବରଣୀ</h4>
                             <div>
@@ -146,8 +157,14 @@
                                     <input type="tel" id="teacher-phone" pattern="[0-9]{10}" title="Must be exactly 10 digits" maxlength="10" required class="w-full pl-12 pr-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white tracking-wide" placeholder="9876543210">
                                 </div>
                             </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">୪-ଅଙ୍କ ବିଶିଷ୍ଟ ସୁରକ୍ଷା ପିନ୍ (Create 4-Digit PIN) *</label>
+                                <input type="password" id="teacher-pin" pattern="[0-9]{4}" title="Must be exactly 4 digits" maxlength="4" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white tracking-widest text-center text-lg font-bold" placeholder="• • • •">
+                                <p class="text-[11px] text-slate-500 mt-1 font-medium"><i class="fa-solid fa-key"></i> ଭବିଷ୍ୟତରେ ଆପଣଙ୍କ ସ୍କୋର ଅପଡେଟ୍ କରିବାକୁ ଏହି ପିନ୍ ମନେରଖନ୍ତୁ |</p>
+                            </div>
                         </div>
 
+                        <!-- School Details -->
                         <div class="space-y-5">
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-solid fa-school text-indigo-500"></i> ବିଦ୍ୟାଳୟ ତଥ୍ୟ</h4>
                             <div class="grid grid-cols-2 gap-4">
@@ -180,12 +197,12 @@
                                 <input type="text" id="school-name" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white">
                             </div>
                             <div>
-                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">ନାମାଙ୍କିତ ଶିକ୍ଷାର୍ଥୀ (Learners Enrolled) *</label>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">ଆପଣଙ୍କ ଦ୍ୱାରା ନାମାଙ୍କିତ ଶିକ୍ଷାର୍ଥୀ (Learners Enrolled) *</label>
                                 <input type="number" id="learners-enrolled" min="20" required class="w-full px-4 py-2.5 border border-slate-300 rounded-xl focus:ring-2 focus:ring-indigo-500 bg-white font-bold text-indigo-700" placeholder="Minimum 20">
-                                <p class="text-[11px] text-red-500 mt-1 font-medium"><i class="fa-solid fa-circle-exclamation"></i> ସର୍ବନିମ୍ନ ୨୦ ଜଣ ଶିକ୍ଷାର୍ଥୀ ଆବଶ୍ୟକ |</p>
                             </div>
                         </div>
 
+                        <!-- Uploads -->
                         <div class="space-y-5 md:col-span-2 mt-2">
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-indigo-500"></i> ପ୍ରମାଣପତ୍ର ଅପଲୋଡ୍ (Secure Upload)</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -210,7 +227,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <p class="text-[11px] text-center text-slate-400 font-medium"><i class="fa-solid fa-lock text-green-500"></i> Images are automatically compressed to save mobile data and uploaded securely.</p>
                         </div>
                     </div>
 
@@ -225,35 +241,127 @@
             </div>
         </section>
 
+        <!-- UPDATE SCORE SECTION -->
+        <section id="section-update" class="hidden animate-fade-in-up">
+            <div class="glass-panel rounded-2xl shadow-2xl overflow-hidden mb-12 border-t-4 border-cyan-500 max-w-2xl mx-auto">
+                <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center">
+                    <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                        <div class="bg-cyan-100 text-cyan-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                        ଆପଣଙ୍କର ସ୍କୋର ଅପଡେଟ୍ କରନ୍ତୁ
+                    </h3>
+                    <button class="close-section text-slate-400 hover:text-slate-700 bg-slate-50 hover:bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <div class="p-6 md:p-8 bg-slate-50/50">
+                    
+                    <!-- 1. LOGIN VIEW -->
+                    <div id="update-login-div" class="block">
+                        <p class="text-slate-600 mb-6 font-medium text-center">ଲଗ୍ ଇନ୍ କରିବାକୁ ଆପଣଙ୍କର ପଞ୍ଜୀକୃତ ଫୋନ୍ ନମ୍ବର ଏବଂ ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ପିନ୍ ପ୍ରବେଶ କରନ୍ତୁ |</p>
+                        <form id="update-login-form" class="space-y-4 max-w-sm mx-auto">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">ଫୋନ୍ ନମ୍ବର (Phone Number) *</label>
+                                <input type="tel" id="up-phone" pattern="[0-9]{10}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-widest font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">୪-ଅଙ୍କ ପିନ୍ (4-Digit PIN) *</label>
+                                <input type="password" id="up-pin" pattern="[0-9]{4}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-[1em] font-bold text-xl" placeholder="••••">
+                            </div>
+                            <button type="submit" id="btn-up-login" class="w-full py-3 mt-2 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 font-bold shadow flex justify-center items-center gap-2">
+                                ଲଗ୍ ଇନ୍ (Login)
+                            </button>
+                            <div class="text-center mt-4">
+                                <button type="button" id="btn-show-forgot" class="text-cyan-600 hover:text-cyan-800 text-sm font-bold underline">ପିନ୍ ଭୁଲିଯାଇଛନ୍ତି କି? (Forgot PIN?)</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 2. FORGOT PIN VIEW (Simplified - No Secret ID) -->
+                    <div id="forgot-pin-div" class="hidden">
+                        <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl mb-6 text-sm text-amber-800 font-medium">
+                            ପିନ୍ ରିସେଟ୍ କରିବାକୁ ଦୟାକରି ଆପଣଙ୍କର ଫୋନ୍ ନମ୍ବର ଏବଂ ଆପଣଙ୍କ ବିଦ୍ୟାଳୟର ସଠିକ୍ UDISE କୋଡ୍ ପ୍ରବେଶ କରନ୍ତୁ |
+                        </div>
+                        <form id="forgot-pin-form" class="space-y-4 max-w-sm mx-auto">
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">ଫୋନ୍ ନମ୍ବର (Phone Number) *</label>
+                                <input type="tel" id="reset-phone" pattern="[0-9]{10}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-widest font-bold">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-slate-700 mb-1.5">ବିଦ୍ୟାଳୟ UDISE କୋଡ୍ *</label>
+                                <input type="text" id="reset-udise" pattern="[0-9]{11}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-widest font-bold">
+                            </div>
+                            <div class="pt-2">
+                                <label class="block text-sm font-bold text-cyan-700 mb-1.5">ନୂତନ ୪-ଅଙ୍କ ପିନ୍ (New 4-Digit PIN) *</label>
+                                <input type="text" id="reset-new-pin" pattern="[0-9]{4}" required class="w-full px-4 py-3 border border-cyan-300 rounded-xl bg-cyan-50 text-center tracking-[1em] font-bold text-xl" placeholder="1234">
+                            </div>
+                            <button type="submit" id="btn-reset-pin" class="w-full py-3 mt-2 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow">
+                                ପିନ୍ ରିସେଟ୍ କରନ୍ତୁ (Reset PIN)
+                            </button>
+                            <div class="text-center mt-4">
+                                <button type="button" id="btn-back-login" class="text-slate-500 hover:text-slate-800 text-sm font-bold"><i class="fa-solid fa-arrow-left"></i> ଲଗ୍ ଇନ୍ କୁ ଫେରନ୍ତୁ</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- 3. UPDATE DATA VIEW -->
+                    <div id="update-data-div" class="hidden">
+                        <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm mb-6 text-center">
+                            <div class="w-16 h-16 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-2xl mb-3"><i class="fa-solid fa-user-tie"></i></div>
+                            <h4 class="font-black text-xl text-slate-800" id="disp-teacher-name">Teacher Name</h4>
+                            <p class="text-sm text-slate-500 font-medium" id="disp-school-name">School Name</p>
+                            <div class="mt-4 flex justify-center gap-4">
+                                <div class="bg-slate-50 px-4 py-2 rounded-lg border border-slate-200">
+                                    <p class="text-xs text-slate-400 font-bold uppercase">ବର୍ତ୍ତମାନର ସ୍କୋର୍</p>
+                                    <p class="text-2xl font-black text-slate-700" id="disp-current-score">0</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <form id="update-data-form" class="max-w-sm mx-auto">
+                            <label class="block text-sm font-bold text-cyan-700 mb-2 text-center">ନୂତନ ସମୁଦାୟ ସଂଖ୍ୟା (New Total Enrollment) *</label>
+                            <input type="number" id="new-score" required class="w-full px-4 py-4 border-2 border-cyan-400 rounded-xl bg-cyan-50 text-center font-black text-3xl text-cyan-900 focus:outline-none focus:ring-4 focus:ring-cyan-200 transition-all shadow-inner mb-6">
+                            
+                            <button type="submit" id="btn-save-update" class="w-full py-4 bg-cyan-600 text-white rounded-xl hover:bg-cyan-700 font-black shadow-lg text-lg">
+                                ସ୍କୋର୍ ସେଭ୍ କରନ୍ତୁ (Save Update)
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SUCCESS SECTION -->
         <section id="section-success" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-xl border-t-4 border-green-500 overflow-hidden mb-12 p-10 md:p-16 flex flex-col items-center justify-center text-center">
                 <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white"><i class="fa-solid fa-check text-5xl text-green-600"></i></div>
-                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">ଆବେଦନ ସଫଳ ହେଲା!</h2>
-                <h3 class="text-xl font-bold text-slate-600 mb-6">(Application Successful)</h3>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-800 mb-4">ପ୍ରକ୍ରିୟା ସଫଳ ହେଲା!</h2>
+                <h3 class="text-xl font-bold text-slate-600 mb-6">(Success)</h3>
                 <p class="text-slate-600 mb-8 max-w-2xl font-medium leading-relaxed bg-slate-50 p-6 rounded-2xl border border-slate-200">
-                    NLP ପ୍ରୋଗ୍ରାମ ପାଇଁ ଆପଣଙ୍କ ବିଦ୍ୟାଳୟ ସଫଳତାର ସହ ପଞ୍ଜୀକୃତ ହୋଇଛି |
+                    ଆପଣଙ୍କର ତଥ୍ୟ ସଫଳତାର ସହ ସେଭ୍ ହୋଇଛି | ଲିଡରବୋର୍ଡରେ ଆପଣଙ୍କର ଅଗ୍ରଗତି ଦେଖନ୍ତୁ |
                 </p>
                 <button class="close-section px-8 py-3.5 bg-slate-800 text-white rounded-xl hover:bg-slate-900 font-bold shadow-lg transition-all">ହୋମ୍ କୁ ଫେରନ୍ତୁ</button>
             </div>
         </section>
 
+        <!-- CERTIFICATE SECTION -->
         <section id="section-certificate" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-xl border-t-4 border-amber-500 overflow-hidden mb-12 flex flex-col items-center justify-center text-center p-12 md:p-20 relative">
-                <!-- Developer shortcut for testing -->
                 <button id="dev-bypass-date" class="absolute top-4 right-4 text-slate-200 hover:text-amber-500 transition-colors"><i class="fa-solid fa-lock"></i></button>
-                
                 <div id="cert-locked-state">
                     <div class="w-24 h-24 bg-amber-100 rounded-full flex items-center justify-center mb-6 mx-auto shadow-inner border-4 border-white"><i class="fa-solid fa-award text-5xl text-amber-500"></i></div>
                     <h2 class="text-3xl font-black text-slate-800 mb-3 tracking-tight">ଦୟାକରି ଅପେକ୍ଷା କରନ୍ତୁ</h2>
                     <h3 class="text-lg font-bold text-slate-500 mb-6 uppercase tracking-wider">(Certificate Available Soon)</h3>
                     <p class="text-slate-600 max-w-lg mx-auto font-medium leading-relaxed">
-                        ଆବେଦନ ପ୍ରକ୍ରିୟା ଶେଷ ହେବା ପରେ ଅର୍ଥାତ୍ <strong class="text-slate-800" id="cert-deadline-text">ଅଗଷ୍ଟ ୩୧, ୨୦୨୬</strong> ପରେ ସାର୍ଟିଫିକେଟ୍ ଉପଲବ୍ଧ ହେବ | ଦୟାକରି ସେହି ସମୟ ପରେ ପୁନର୍ବାର ଚେଷ୍ଟା କରନ୍ତୁ |
+                        ଆବେଦନ ପ୍ରକ୍ରିୟା ଶେଷ ହେବା ପରେ ଅର୍ଥାତ୍ <strong class="text-slate-800" id="cert-deadline-text">ଅଗଷ୍ଟ ୩୧, ୨୦୨୬</strong> ପରେ ସାର୍ଟିଫିକେଟ୍ ଉପଲବ୍ଧ ହେବ |
                     </p>
                     <button class="close-section mt-8 px-8 py-3 bg-white border-2 border-slate-200 text-slate-700 rounded-xl hover:bg-slate-50 font-bold transition-all">ହୋମ୍ କୁ ଫେରନ୍ତୁ (Go Back)</button>
                 </div>
             </div>
         </section>
 
+        <!-- LEADERBOARD SECTION -->
         <section id="section-leaderboard" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-2xl overflow-hidden mb-12 border-t-4 border-emerald-500">
                 <div class="bg-white px-6 py-5 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -267,11 +375,11 @@
                     <div class="bg-slate-800 text-white p-6 md:rounded-2xl shadow-inner flex justify-between items-center mb-6">
                         <div>
                             <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1" id="lb-title">ଓଡିଶାରେ ସମୁଦାୟ ନାମାଙ୍କନ</p>
-                            <p class="text-3xl font-black tracking-tight" id="lb-total-enrolled">0</p>
+                            <p class="text-3xl font-black tracking-tight text-emerald-400" id="lb-total-enrolled">0</p>
                         </div>
                         <div class="text-right border-l border-slate-700 pl-6">
-                            <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Participating Schools</p>
-                            <p class="text-2xl font-bold text-emerald-400" id="lb-total-schools">0</p>
+                            <p class="text-slate-400 text-xs font-bold uppercase tracking-wider mb-1">Teachers Applied</p>
+                            <p class="text-2xl font-bold text-white" id="lb-total-teachers">0</p>
                         </div>
                     </div>
 
@@ -280,22 +388,21 @@
                         <p class="font-medium">Fetching real-time aggregates...</p>
                     </div>
 
-                    <!-- OVERALL DISTRICT VIEW -->
                     <div id="view-districts" class="hidden overflow-x-auto bg-white md:rounded-xl shadow-sm border border-slate-200 no-scrollbar">
                         <table class="w-full text-left border-collapse whitespace-nowrap">
                             <thead>
                                 <tr class="bg-slate-100 text-slate-600 text-xs uppercase font-bold tracking-wider border-b border-slate-200">
                                     <th class="p-4 text-center w-16">Rank</th>
                                     <th class="p-4">District</th>
-                                    <th class="p-4 text-center">Schools</th>
-                                    <th class="p-4 text-center">Total Enrollments</th>
+                                    <th class="p-4 text-center">Teachers</th>
+                                    <th class="p-4 text-center">Enrollments</th>
                                 </tr>
                             </thead>
                             <tbody id="tbody-districts" class="divide-y divide-slate-100"></tbody>
                         </table>
                     </div>
 
-                    <!-- INDIVIDUAL SCHOOL VIEW -->
+                    <!-- INDIVIDUAL TEACHER VIEW -->
                     <div id="view-schools" class="hidden overflow-x-auto bg-white md:rounded-xl shadow-sm border border-slate-200 no-scrollbar">
                         <div class="bg-slate-100 p-3 text-sm font-semibold text-slate-600 border-b border-slate-200 flex justify-between items-center">
                             <button id="btn-back-districts" class="hover:text-indigo-600 transition-colors flex items-center gap-2 px-3 py-1 bg-white rounded shadow-sm">
@@ -307,8 +414,8 @@
                             <thead>
                                 <tr class="bg-slate-50 text-slate-600 text-xs uppercase font-bold tracking-wider border-b border-slate-200">
                                     <th class="p-4 text-center w-16">Rank</th>
-                                    <th class="p-4">School Details</th>
-                                    <th class="p-4">Block / Cluster</th>
+                                    <th class="p-4">Teacher & School</th>
+                                    <th class="p-4">Block</th>
                                     <th class="p-4 text-center">Enrolled</th>
                                 </tr>
                             </thead>
@@ -321,7 +428,7 @@
     </main>
     
     <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs border-t border-slate-800">
-        <p class="font-medium text-slate-300 mb-2">© 2026 NLP Official Portal Odisha. All Rights Reserved.</p>
+        <p class="font-medium text-slate-300 mb-2">© 2026 NILP Official Portal Odisha. All Rights Reserved.</p>
         <p class="flex items-center justify-center gap-2">
             <i class="fa-solid fa-shield-check text-emerald-500"></i> Secured by Firebase Enterprise Architecture
         </p>
@@ -339,12 +446,11 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, doc, writeBatch, getDocs, query, where, orderBy, increment, serverTimestamp, getDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, doc, writeBatch, getDocs, query, where, orderBy, increment, serverTimestamp, getDoc, updateDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'nlp-odisha';
         
-        // Ensure this exactly matches your Firebase console credentials
         const firebaseConfig = typeof __firebase_config !== 'undefined' 
             ? JSON.parse(__firebase_config) 
             : {
@@ -362,37 +468,40 @@
         let isFirebaseReady = false;
         let systemDeadline = new Date('2026-08-31T23:59:59');
 
+        let activeTeacherRef = null;
+        let activeTeacherData = null;
+
         const odishaDistricts = {
             "ANGUL": "Angul (ଅନୁଗୋଳ)", "BALANGIR": "Balangir (ବଲାଙ୍ଗୀର)", "BALASORE": "Balasore (ବାଲେଶ୍ୱର)", 
             "BARGARH": "Bargarh (ବରଗଡ଼)", "BHADRAK": "Bhadrak (ଭଦ୍ରକ)", "BOUDH": "Boudh (ବୌଦ୍ଧ)", 
             "CUTTACK": "Cuttack (କଟକ)", "DEOGARH": "Deogarh (ଦେବଗଡ଼)", "DHENKANAL": "Dhenkanal (ଢେଙ୍କାନାଳ)", 
             "GAJAPATI": "Gajapati (ଗଜପତି)", "GANJAM": "Ganjam (ଗଞ୍ଜାମ)", "JAGATSINGHPUR": "Jagatsinghpur (ଜଗତସିଂହପୁର)", 
             "JAJPUR": "Jajpur (ଯାଜପୁର)", "JHARSUGUDA": "Jharsuguda (ଝାରସୁଗୁଡ଼ା)", "KALAHANDI": "Kalahandi (କଳାହାଣ୍ଡି)", 
-            "KANDHAMAL": "Kandhamal (କନ୍ଧମାଳ)", "KENDRAPARA": "Kendrapara (କେନ୍ଦ୍ରାପଡ଼ା)", "KEONJHAR": "Keonjhar (କେନ୍ଦୁଝର)", 
+            "KANDHAMAL": "Kandhamal (କନ୍ଧମାଳ)", "KENDRAPARA": "Kେନ୍ଦ୍ରାପଡ଼ା (Kendrapara)", "KEONJHAR": "Keonjhar (କେନ୍ଦୁଝର)", 
             "KHORDHA": "Khordha (ଖୋର୍ଦ୍ଧା)", "KORAPUT": "Koraput (କୋରାପୁଟ)", "MALKANGIRI": "Malkangiri (ମାଲକାନଗିରି)", 
             "MAYURBHANJ": "Mayurbhanj (ମୟୂରଭଞ୍ଜ)", "NABARANGPUR": "Nabarangpur (ନବରଙ୍ଗପୁର)", "NAYAGARH": "Nayagarh (ନୟାଗଡ଼)", 
             "NUAPADA": "Nuapada (ନୂଆପଡ଼ା)", "PURI": "Puri (ପୁରୀ)", "RAYAGADA": "Rayagada (ରାୟଗଡ଼ା)", 
             "SAMBALPUR": "Sambalpur (ସମ୍ବଲପୁର)", "SUBARNAPUR": "Subarnapur (ସୁବର୍ଣ୍ଣପୁର)", "SUNDARGARH": "Sundargarh (ସୁନ୍ଦରଗଡ଼)"
         };
 
-        // DOM elements
         const sections = {
             form: document.getElementById('section-form'),
             leaderboard: document.getElementById('section-leaderboard'),
             success: document.getElementById('section-success'),
-            certificate: document.getElementById('section-certificate')
+            certificate: document.getElementById('section-certificate'),
+            update: document.getElementById('section-update')
         };
         const buttons = {
             form: document.getElementById('btn-show-form'),
             leaderboard: document.getElementById('btn-show-leaderboard'),
-            certificate: document.getElementById('btn-show-certificate')
+            certificate: document.getElementById('btn-show-certificate'),
+            update: document.getElementById('btn-show-update')
         };
 
         async function initApp() {
             try {
                 app = initializeApp(firebaseConfig);
                 auth = getAuth(app);
-                // Robust Offline Persistence for Rural Areas
                 db = initializeFirestore(app, { localCache: persistentLocalCache({tabManager: persistentMultipleTabManager()}) });
                 storage = getStorage(app); 
 
@@ -404,7 +513,7 @@
                     else await signInAnonymously(auth);
                 } catch (authErr) {
                     console.error("Auth Fail:", authErr);
-                    document.getElementById('auth-status').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Auth setup required in console.`;
+                    document.getElementById('auth-status').innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> Auth setup required`;
                     return;
                 }
 
@@ -431,7 +540,7 @@
                         document.getElementById('cert-deadline-text').textContent = docSnap.data().deadlineTextOdia;
                     }
                 }
-            } catch(e) { console.log("Using default deadline."); }
+            } catch(e) {}
         }
 
         function populateDistrictDropdown() {
@@ -441,26 +550,21 @@
 
         function hideAllSections() {
             Object.values(sections).forEach(sec => sec.classList.add('hidden'));
-            Object.values(buttons).forEach(btn => btn.classList.remove('ring-4', 'ring-indigo-100', 'ring-emerald-100', 'ring-amber-100'));
+            Object.values(buttons).forEach(btn => btn.classList.remove('ring-4', 'ring-indigo-100', 'ring-emerald-100', 'ring-amber-100', 'ring-cyan-100'));
         }
 
         buttons.form.addEventListener('click', () => { hideAllSections(); sections.form.classList.remove('hidden'); sections.form.scrollIntoView(); buttons.form.classList.add('ring-4', 'ring-indigo-100'); });
         buttons.leaderboard.addEventListener('click', () => { hideAllSections(); sections.leaderboard.classList.remove('hidden'); sections.leaderboard.scrollIntoView(); buttons.leaderboard.classList.add('ring-4', 'ring-emerald-100'); loadOverallLeaderboard(); });
-        buttons.certificate.addEventListener('click', () => { 
-            hideAllSections(); sections.certificate.classList.remove('hidden'); sections.certificate.scrollIntoView(); buttons.certificate.classList.add('ring-4', 'ring-amber-100'); 
-            checkCertificateEligibility();
-        });
-        document.querySelectorAll('.close-section').forEach(btn => btn.addEventListener('click', () => { hideAllSections(); window.scrollTo({top:0}); }));
+        buttons.update.addEventListener('click', () => { hideAllSections(); sections.update.classList.remove('hidden'); sections.update.scrollIntoView(); buttons.update.classList.add('ring-4', 'ring-cyan-100'); });
+        buttons.certificate.addEventListener('click', () => { hideAllSections(); sections.certificate.classList.remove('hidden'); sections.certificate.scrollIntoView(); buttons.certificate.classList.add('ring-4', 'ring-amber-100'); checkCertificateEligibility(); });
         
-        // Developer shortcut to bypass date logic for testing Certificate flow
+        document.querySelectorAll('.close-section').forEach(btn => btn.addEventListener('click', () => { hideAllSections(); window.scrollTo({top:0}); }));
         document.getElementById('dev-bypass-date').addEventListener('dblclick', () => { systemDeadline = new Date('2020-01-01'); checkCertificateEligibility(); showToast('Dev Mode', 'Date check bypassed.', 'success'); });
 
         function checkCertificateEligibility() {
             const now = new Date();
-            const lockedState = document.getElementById('cert-locked-state');
             if (now > systemDeadline) {
-                // Post-deadline: Logic to build full certificate UI would trigger here.
-                lockedState.innerHTML = `<div class="bg-blue-50 p-6 rounded-xl border border-blue-200"><h3 class="text-xl font-bold text-blue-800 mb-2">Phase 2 Unlocked</h3><p class="text-blue-600">The certificate download system is now active. (Integration of automated Canvas drawing happens here).</p></div>`;
+                document.getElementById('cert-locked-state').innerHTML = `<div class="bg-blue-50 p-6 rounded-xl border border-blue-200"><h3 class="text-xl font-bold text-blue-800 mb-2">Phase 2 Unlocked</h3><p class="text-blue-600">The certificate download system is now active.</p></div>`;
             }
         }
 
@@ -487,7 +591,7 @@
                             canvas.width = w; canvas.height = h;
                             ctx.drawImage(img, 0, 0, w, h);
                         }
-                        resolve(canvas.toDataURL('image/jpeg', 0.6)); // 60% quality highly optimized
+                        resolve(canvas.toDataURL('image/jpeg', 0.6));
                     };
                     img.onerror = reject;
                 };
@@ -508,6 +612,7 @@
             });
         });
 
+        // --- SUBMIT NOMINATION LOGIC ---
         document.getElementById('nomination-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             if (!isFirebaseReady || !currentUser) return showToast('Error', 'Database offline.', 'error');
@@ -519,15 +624,16 @@
             try {
                 const district = document.getElementById('loc-district').value;
                 const udise = document.getElementById('school-udise').value.trim();
-                const learners = parseInt(document.getElementById('learners-enrolled').value, 10);
                 const phone = document.getElementById('teacher-phone').value.trim();
+                const pin = document.getElementById('teacher-pin').value.trim();
+                const learners = parseInt(document.getElementById('learners-enrolled').value, 10);
 
-                // 1. Duplicate Check
+                // 1. Dual-Condition Duplicate Check (Phone AND UDISE)
                 const nomsRefForCheck = collection(db, 'artifacts', appId, 'public', 'data', 'nominations');
-                const dupQuery = query(nomsRefForCheck, where('udiseCode', '==', udise));
+                const dupQuery = query(nomsRefForCheck, where('phone', '==', phone), where('udiseCode', '==', udise));
                 const dupSnap = await getDocs(dupQuery);
                 if (!dupSnap.empty) {
-                    showToast('Duplicate Found', 'This UDISE Code is already registered.', 'error');
+                    showToast('Duplicate Found', 'This Phone Number is already registered for this UDISE code.', 'error');
                     btn.disabled = false; spinner.classList.add('hidden');
                     return;
                 }
@@ -544,14 +650,13 @@
                 const photoUrl = await getDownloadURL(photoRef);
                 const proofUrl = await getDownloadURL(proofRef);
 
-                // 3. Atomic Batch Write (The Scoreboard System)
+                // 3. Atomic Batch Write
                 const batch = writeBatch(db);
-                
-                // Save Main Nomination
                 const nomRef = doc(collection(db, 'artifacts', appId, 'public', 'data', 'nominations'));
                 batch.set(nomRef, {
                     teacherName: document.getElementById('teacher-name').value.trim(),
                     phone: phone,
+                    securityPin: pin,
                     district: district,
                     block: document.getElementById('loc-block').value.trim().toUpperCase(),
                     cluster: document.getElementById('loc-cluster').value.trim().toUpperCase(),
@@ -564,17 +669,12 @@
                     createdAt: serverTimestamp()
                 });
 
-                // Update District Scoreboard
+                // Update District Scoreboard (Tracking Teachers, not Schools)
                 const distRef = doc(db, 'artifacts', appId, 'public', 'data', 'lb_districts', district);
-                batch.set(distRef, { districtId: district, totalEnrolled: increment(learners), schoolCount: increment(1), lastUpdated: serverTimestamp() }, { merge: true });
-
-                // Update School Scoreboard inside District
-                const schoolRef = doc(db, 'artifacts', appId, 'public', 'data', 'lb_schools', udise);
-                batch.set(schoolRef, { schoolName: document.getElementById('school-name').value.trim().toUpperCase(), district: district, block: document.getElementById('loc-block').value.trim().toUpperCase(), cluster: document.getElementById('loc-cluster').value.trim().toUpperCase(), udiseCode: udise, totalEnrolled: increment(learners), lastUpdated: serverTimestamp() }, { merge: true });
+                batch.set(distRef, { districtId: district, totalEnrolled: increment(learners), teacherCount: increment(1), lastUpdated: serverTimestamp() }, { merge: true });
 
                 await batch.commit();
 
-                // UI Reset
                 document.getElementById('nomination-form').reset();
                 ['photo','proof'].forEach(t => {
                     document.getElementById(`preview-${t}-container`).innerHTML = `<i class="fa-solid fa-${t==='photo'?'user-tie':'mobile-screen'} text-2xl text-slate-400"></i>`;
@@ -592,6 +692,159 @@
             }
         });
 
+        // --- UPDATE SCORE LOGIC ---
+        document.getElementById('btn-show-forgot').addEventListener('click', () => {
+            document.getElementById('update-login-div').classList.add('hidden');
+            document.getElementById('forgot-pin-div').classList.remove('hidden');
+        });
+        document.getElementById('btn-back-login').addEventListener('click', () => {
+            document.getElementById('forgot-pin-div').classList.add('hidden');
+            document.getElementById('update-login-div').classList.remove('hidden');
+        });
+
+        // 1. Login with Phone + PIN
+        document.getElementById('update-login-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-up-login');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Checking...`;
+            btn.disabled = true;
+
+            try {
+                const phone = document.getElementById('up-phone').value.trim();
+                const pin = document.getElementById('up-pin').value.trim();
+
+                const q = query(collection(db, 'artifacts', appId, 'public', 'data', 'nominations'), where('phone', '==', phone));
+                const snap = await getDocs(q);
+
+                if (snap.empty) { 
+                    showToast('Error', 'No account found with this phone number.', 'error'); 
+                    return; 
+                }
+
+                const docSnap = snap.docs[0];
+                const data = docSnap.data();
+
+                if (data.securityPin !== pin) { 
+                    showToast('Error', 'Incorrect PIN. Try again.', 'error'); 
+                    return; 
+                }
+
+                // Success! Set active teacher and show update view
+                activeTeacherRef = docSnap.ref;
+                activeTeacherData = data;
+
+                document.getElementById('update-login-div').classList.add('hidden');
+                document.getElementById('update-data-div').classList.remove('hidden');
+                
+                document.getElementById('disp-teacher-name').textContent = data.teacherName;
+                document.getElementById('disp-school-name').textContent = data.schoolName;
+                document.getElementById('disp-current-score').textContent = data.learnersEnrolled;
+                
+                const inputNew = document.getElementById('new-score');
+                inputNew.min = data.learnersEnrolled + 1; // Must be strictly greater
+                inputNew.value = data.learnersEnrolled;
+                
+            } catch (err) {
+                console.error(err);
+                showToast('Error', 'System error occurred.', 'error');
+            } finally {
+                btn.innerHTML = `ଲଗ୍ ଇନ୍ (Login)`;
+                btn.disabled = false;
+            }
+        });
+
+        // 2. Forgot PIN (Verify Phone + UDISE)
+        document.getElementById('forgot-pin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-reset-pin');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Verifying...`;
+            btn.disabled = true;
+
+            try {
+                const phone = document.getElementById('reset-phone').value.trim();
+                const udise = document.getElementById('reset-udise').value.trim();
+                const newPin = document.getElementById('reset-new-pin').value.trim();
+
+                // Dual check: Phone and UDISE
+                const q = query(collection(db, 'artifacts', appId, 'public', 'data', 'nominations'), where('phone', '==', phone), where('udiseCode', '==', udise));
+                const snap = await getDocs(q);
+
+                if (snap.empty) { 
+                    showToast('Error', 'No match found for this Phone and UDISE combination.', 'error'); 
+                    return; 
+                }
+
+                const docSnap = snap.docs[0];
+
+                // Verification successful, save new PIN
+                await updateDoc(docSnap.ref, { securityPin: newPin });
+                showToast('Success', 'PIN reset successfully! Please login.', 'success');
+                
+                document.getElementById('forgot-pin-form').reset();
+                document.getElementById('forgot-pin-div').classList.add('hidden');
+                document.getElementById('update-login-div').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err); showToast('Error', 'Could not reset PIN.', 'error');
+            } finally {
+                btn.innerHTML = `ପିନ୍ ରିସେଟ୍ କରନ୍ତୁ (Reset PIN)`;
+                btn.disabled = false;
+            }
+        });
+
+        // 3. Save New Score (Atomic Update)
+        document.getElementById('update-data-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const newTotal = parseInt(document.getElementById('new-score').value, 10);
+            
+            if (newTotal <= activeTeacherData.learnersEnrolled) {
+                showToast('Error', 'New count must be strictly higher than the current count.', 'error'); 
+                return;
+            }
+
+            const btn = document.getElementById('btn-save-update');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ସେଭ୍ ହେଉଛି...`;
+            btn.disabled = true;
+
+            try {
+                const difference = newTotal - activeTeacherData.learnersEnrolled;
+                const batch = writeBatch(db);
+
+                // Update teacher's personal record
+                batch.update(activeTeacherRef, { 
+                    learnersEnrolled: newTotal, 
+                    lastUpdated: serverTimestamp() 
+                });
+
+                // Update District Scoreboard (Add the difference to the total)
+                const distRef = doc(db, 'artifacts', appId, 'public', 'data', 'lb_districts', activeTeacherData.district);
+                batch.update(distRef, { 
+                    totalEnrolled: increment(difference) 
+                });
+
+                await batch.commit();
+
+                // Reset and show success
+                activeTeacherData = null; activeTeacherRef = null;
+                document.getElementById('update-data-form').reset();
+                document.getElementById('update-login-form').reset();
+                
+                document.getElementById('update-data-div').classList.add('hidden');
+                document.getElementById('update-login-div').classList.remove('hidden');
+                
+                hideAllSections();
+                sections.success.classList.remove('hidden');
+                showToast('Success', 'Score updated successfully!', 'success');
+
+            } catch (err) {
+                console.error(err); showToast('Error', 'Could not save score.', 'error');
+            } finally {
+                btn.innerHTML = `ସ୍କୋର୍ ସେଭ୍ କରନ୍ତୁ (Save Update)`;
+                btn.disabled = false;
+            }
+        });
+
+        // --- LEADERBOARD LOGIC ---
         document.getElementById('btn-back-districts').addEventListener('click', loadOverallLeaderboard);
 
         async function loadOverallLeaderboard() {
@@ -601,24 +854,22 @@
             document.getElementById('view-schools').classList.add('hidden');
 
             try {
-                // Reads exactly 1 doc per participating district (Max 30 reads!)
                 const lbRef = collection(db, 'artifacts', appId, 'public', 'data', 'lb_districts');
                 const snap = await getDocs(lbRef);
                 
                 let districts = [];
-                let overallEnrolled = 0, overallSchools = 0;
+                let overallEnrolled = 0, overallTeachers = 0;
                 
                 snap.forEach(doc => {
                     const d = doc.data();
                     districts.push(d);
                     overallEnrolled += (d.totalEnrolled || 0);
-                    overallSchools += (d.schoolCount || 0);
+                    overallTeachers += (d.teacherCount || 0);
                 });
                 districts.sort((a,b) => b.totalEnrolled - a.totalEnrolled);
                 
-                document.getElementById('lb-title').textContent = "ଓଡିଶାରେ ସମୁଦାୟ ନାମାଙ୍କନ";
                 document.getElementById('lb-total-enrolled').textContent = overallEnrolled.toLocaleString();
-                document.getElementById('lb-total-schools').textContent = overallSchools.toLocaleString();
+                document.getElementById('lb-total-teachers').textContent = overallTeachers.toLocaleString();
                 
                 const tbody = document.getElementById('tbody-districts');
                 tbody.innerHTML = '';
@@ -637,7 +888,7 @@
                                 ${odishaDistricts[d.districtId] || d.districtId} 
                                 <i class="fa-solid fa-arrow-right text-xs text-indigo-400 opacity-0 group-hover:opacity-100 transition-all transform -translate-x-2 group-hover:translate-x-0"></i>
                             </td>
-                            <td class="p-4 text-center font-medium text-slate-600">${(d.schoolCount||0).toLocaleString()}</td>
+                            <td class="p-4 text-center font-medium text-slate-600">${(d.teacherCount||0).toLocaleString()}</td>
                             <td class="p-4 text-center">
                                 <span class="bg-indigo-100 text-indigo-800 font-bold px-3 py-1 rounded-full text-xs">${(d.totalEnrolled||0).toLocaleString()}</span>
                             </td>
@@ -658,35 +909,27 @@
             document.getElementById('view-schools').classList.add('hidden');
 
             try {
-                // Reads exactly 1 doc per school in this specific district! Extremely optimized.
-                const schRef = collection(db, 'artifacts', appId, 'public', 'data', 'lb_schools');
-                const q = query(schRef, where('district', '==', districtId)); // Basic query, we sort in memory to avoid index requirement for simple setups
+                // Fetch ALL teachers in this district directly from the nominations collection
+                const nomRef = collection(db, 'artifacts', appId, 'public', 'data', 'nominations');
+                const q = query(nomRef, where('district', '==', districtId)); 
                 const snap = await getDocs(q);
                 
-                let schools = [];
-                let distEnrolled = 0;
+                let teachers = [];
+                snap.forEach(doc => { teachers.push(doc.data()); });
                 
-                snap.forEach(doc => {
-                    const s = doc.data();
-                    schools.push(s);
-                    distEnrolled += (s.totalEnrolled || 0);
-                });
+                // Sort top teachers in memory
+                teachers.sort((a,b) => b.learnersEnrolled - a.learnersEnrolled);
                 
-                // Sort in memory to avoid needing complex composite Firestore Indexes
-                schools.sort((a,b) => b.totalEnrolled - a.totalEnrolled);
-                
-                document.getElementById('lb-title').textContent = `${odishaDistricts[districtId] || districtId} ରେ ନାମାଙ୍କନ`;
-                document.getElementById('lb-total-enrolled').textContent = distEnrolled.toLocaleString();
-                document.getElementById('lb-total-schools').textContent = schools.length.toLocaleString();
                 document.getElementById('badge-current-district').textContent = districtId;
                 
                 const tbody = document.getElementById('tbody-schools');
                 tbody.innerHTML = '';
                 
-                if(schools.length === 0) {
-                    tbody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-slate-500 font-medium">No schools have applied in this district yet.</td></tr>`;
+                if(teachers.length === 0) {
+                    tbody.innerHTML = `<tr><td colspan="4" class="p-8 text-center text-slate-500 font-medium">No teachers have applied in this district yet.</td></tr>`;
                 } else {
-                    schools.forEach((s, i) => {
+                    // Limit to top 200 to keep the table clean
+                    teachers.slice(0, 200).forEach((t, i) => {
                         const rank = i+1;
                         let badge = `<span class="w-7 h-7 flex items-center justify-center rounded-full bg-slate-100 text-slate-600 font-bold text-xs mx-auto">${rank}</span>`;
                         if(rank === 1) badge = `<span class="w-7 h-7 flex items-center justify-center rounded-full bg-yellow-100 text-yellow-700 font-bold text-xs mx-auto ring-2 ring-yellow-300"><i class="fa-solid fa-crown text-[10px]"></i></span>`;
@@ -697,9 +940,15 @@
                         tr.className = "hover:bg-emerald-50/30 transition-colors";
                         tr.innerHTML = `
                             <td class="p-4 text-center">${badge}</td>
-                            <td class="p-4"><div class="font-bold text-slate-800">${s.schoolName}</div></td>
-                            <td class="p-4"><div class="font-medium text-slate-700 text-sm">${s.block}</div><div class="text-xs text-slate-400">${s.cluster}</div></td>
-                            <td class="p-4 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs">${(s.totalEnrolled||0).toLocaleString()}</span></td>
+                            <td class="p-4 flex items-center gap-3">
+                                <img src="${t.photoUrl}" class="w-10 h-10 rounded-full object-cover border border-slate-200 shadow-sm" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0iI2NidTVlMSI+PHBhdGggZD0iTTEyIDJhNSA1IDAgMSAwIDAgMTAgNSA1IDAgMCAwIDAtMTB6bTAgMTFjLTQuNCAwLTggMi4yLTggNS41VjIyaDE2di0zLjVjMC0zLjMtMy42LTUuNS04LTUuNXoiLz48L3N2Zz4='">
+                                <div>
+                                    <div class="font-bold text-slate-800">${t.teacherName}</div>
+                                    <div class="text-[11px] text-slate-500 max-w-[150px] truncate" title="${t.schoolName}">${t.schoolName}</div>
+                                </div>
+                            </td>
+                            <td class="p-4"><div class="font-medium text-slate-700 text-sm">${t.block}</div></td>
+                            <td class="p-4 text-center"><span class="bg-emerald-100 text-emerald-800 font-bold px-3 py-1 rounded-full text-xs shadow-inner">${(t.learnersEnrolled||0).toLocaleString()}</span></td>
                         `;
                         tbody.appendChild(tr);
                     });
