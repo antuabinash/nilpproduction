@@ -75,19 +75,19 @@
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
             <!-- Apply Button -->
-            <button id="btn-show-form" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-100">
+            <button id="btn-show-form" class="group relative overflow-hidden bg-white border-2 border-blue-200 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-blue-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-blue-100 text-blue-800 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-file-signature"></i></div>
                     <div>
-                        <h2 class="font-bold text-slate-800 mb-1">ମନୋନୟନ</h2>
+                        <h2 class="font-bold text-slate-800 mb-1">ପଞ୍ଜିକରଣ</h2>
                         <p class="text-slate-500 text-xs font-medium">ନୂଆ ଆବେଦନ କରନ୍ତୁ</p>
                     </div>
                 </div>
             </button>
 
             <!-- Update Score Button -->
-            <button id="btn-show-update" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-100">
+            <button id="btn-show-update" class="group relative overflow-hidden bg-white border-2 border-cyan-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-cyan-500 focus:outline-none focus:ring-4 focus:ring-cyan-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-cyan-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-cyan-100 text-cyan-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-arrow-trend-up"></i></div>
@@ -99,7 +99,7 @@
             </button>
 
             <!-- Leaderboard Button -->
-            <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-100">
+            <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white border-2 border-emerald-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-emerald-500 focus:outline-none focus:ring-4 focus:ring-emerald-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-emerald-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-emerald-100 text-emerald-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-ranking-star"></i></div>
@@ -111,7 +111,7 @@
             </button>
 
             <!-- Certificate Button -->
-            <button id="btn-show-certificate" class="group relative overflow-hidden bg-white rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-100">
+            <button id="btn-show-certificate" class="group relative overflow-hidden bg-white border-2 border-amber-300 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-amber-500 focus:outline-none focus:ring-4 focus:ring-amber-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-amber-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
                     <div class="bg-amber-100 text-amber-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-award"></i></div>
@@ -129,7 +129,7 @@
                 <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center">
                     <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
                         <div class="bg-blue-100 text-blue-800 w-8 h-8 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-user-plus"></i></div>
-                        ଶିକ୍ଷକ ମନୋନୟନ ଫର୍ମ
+                        ଶିକ୍ଷକ ପଞ୍ଜିକରଣ ଫର୍ମ
                     </h3>
                     <button class="close-section text-slate-400 hover:text-slate-700 transition-colors bg-slate-50 hover:bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center">
                         <i class="fa-solid fa-xmark"></i>
@@ -430,6 +430,45 @@
                         <button type="submit" id="btn-cert-login" class="w-full py-3 mt-2 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow-lg flex justify-center items-center gap-2 transition-all">
                             ଲଗ୍ ଇନ୍ (Login)
                         </button>
+                        <div class="text-center mt-4">
+                            <button type="button" id="btn-show-cert-forgot" class="text-amber-600 hover:text-amber-800 text-sm font-bold underline">ପିନ୍ ଭୁଲିଯାଇଛନ୍ତି କି? (Forgot PIN?)</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- FORGOT PIN VIEW (CERTIFICATE) -->
+                <div id="cert-forgot-pin-div" class="hidden w-full">
+                    <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center mb-6 rounded-xl shadow-sm border border-slate-200">
+                        <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                            <div class="bg-amber-100 text-amber-600 w-8 h-8 rounded-lg flex items-center justify-center text-sm"><i class="fa-solid fa-key"></i></div>
+                            ପିନ୍ ରିସେଟ୍ କରନ୍ତୁ
+                        </h3>
+                        <button class="close-section text-slate-400 hover:text-slate-700 bg-slate-50 hover:bg-slate-100 w-8 h-8 rounded-full flex items-center justify-center">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                    <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl mb-6 text-sm text-amber-800 font-medium max-w-sm mx-auto">
+                        ପିନ୍ ରିସେଟ୍ କରିବାକୁ ଦୟାକରି ଆପଣଙ୍କର ଫୋନ୍ ନମ୍ବର ଏବଂ ଆପଣଙ୍କ ବିଦ୍ୟାଳୟର ସଠିକ୍ UDISE କୋଡ୍ ପ୍ରବେଶ କରନ୍ତୁ |
+                    </div>
+                    <form id="cert-forgot-pin-form" class="space-y-4 max-w-sm mx-auto">
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">ଫୋନ୍ ନମ୍ବର (Phone Number) *</label>
+                            <input type="tel" id="cert-reset-phone" pattern="[0-9]{10}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-widest font-bold">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-slate-700 mb-1.5">ବିଦ୍ୟାଳୟ UDISE କୋଡ୍ *</label>
+                            <input type="text" id="cert-reset-udise" pattern="[0-9]{11}" required class="w-full px-4 py-3 border border-slate-300 rounded-xl bg-white text-center tracking-widest font-bold">
+                        </div>
+                        <div class="pt-2">
+                            <label class="block text-sm font-bold text-amber-700 mb-1.5">ନୂତନ ୪-ଅଙ୍କ ପିନ୍ (New 4-Digit PIN) *</label>
+                            <input type="password" id="cert-reset-new-pin" pattern="[0-9]{4}" required class="w-full px-4 py-3 border border-amber-300 rounded-xl bg-amber-50 text-center tracking-[1em] font-bold text-xl" placeholder="1234">
+                        </div>
+                        <button type="submit" id="btn-cert-reset-pin" class="w-full py-3 mt-2 bg-amber-500 text-white rounded-xl hover:bg-amber-600 font-bold shadow">
+                            ପିନ୍ ରିସେଟ୍ କରନ୍ତୁ (Reset PIN)
+                        </button>
+                        <div class="text-center mt-4">
+                            <button type="button" id="btn-cert-back-login" class="text-slate-500 hover:text-slate-800 text-sm font-bold"><i class="fa-solid fa-arrow-left"></i> ଲଗ୍ ଇନ୍ କୁ ଫେରନ୍ତୁ</button>
+                        </div>
                     </form>
                 </div>
 
@@ -632,6 +671,7 @@
             buttons.certificate.classList.add('ring-4', 'ring-amber-100');
             document.getElementById('cert-login-div').classList.remove('hidden');
             document.getElementById('cert-download-div').classList.add('hidden');
+            if(document.getElementById('cert-forgot-pin-div')) document.getElementById('cert-forgot-pin-div').classList.add('hidden');
             document.getElementById('cert-login-form').reset();
         });
 
@@ -964,6 +1004,52 @@
         });
 
         // --- CERTIFICATE LOGIC ---
+        document.getElementById('btn-show-cert-forgot').addEventListener('click', () => {
+            document.getElementById('cert-login-div').classList.add('hidden');
+            document.getElementById('cert-forgot-pin-div').classList.remove('hidden');
+        });
+        document.getElementById('btn-cert-back-login').addEventListener('click', () => {
+            document.getElementById('cert-forgot-pin-div').classList.add('hidden');
+            document.getElementById('cert-login-div').classList.remove('hidden');
+        });
+
+        document.getElementById('cert-forgot-pin-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-cert-reset-pin');
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> ଯାଞ୍ଚ ହେଉଛି...`;
+            btn.disabled = true;
+
+            try {
+                const phone = document.getElementById('cert-reset-phone').value.trim();
+                const udise = document.getElementById('cert-reset-udise').value.trim();
+                const newPin = document.getElementById('cert-reset-new-pin').value.trim();
+
+                const q = query(collection(db, 'artifacts', appId, 'public', 'data', 'nominations'), where('phone', '==', phone));
+                const snap = await getDocs(q);
+
+                if (snap.empty) { showToast('Error', 'Account not found.', 'error'); return; }
+
+                const docSnap = snap.docs[0];
+                if (docSnap.data().udiseCode !== udise) {
+                    showToast('Error', 'UDISE code does not match our records for this phone number.', 'error'); 
+                    return;
+                }
+
+                await updateDoc(docSnap.ref, { securityPin: newPin });
+                showToast('Success', 'PIN reset successfully! Please login.', 'success');
+                
+                document.getElementById('cert-forgot-pin-form').reset();
+                document.getElementById('cert-forgot-pin-div').classList.add('hidden');
+                document.getElementById('cert-login-div').classList.remove('hidden');
+
+            } catch (err) {
+                console.error(err); showToast('Error', 'Could not reset PIN.', 'error');
+            } finally {
+                btn.innerHTML = `ପିନ୍ ରିସେଟ୍ କରନ୍ତୁ (Reset PIN)`;
+                btn.disabled = false;
+            }
+        });
+
         document.getElementById('cert-login-form').addEventListener('submit', async (e) => {
             e.preventDefault();
             const btn = document.getElementById('btn-cert-login');
