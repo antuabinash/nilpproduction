@@ -35,7 +35,7 @@
                     <img src="india_govt_logo.png" alt="Govt of India" class="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/512x512/ffffff/1e3a8a?text=India'">
                     <img src="odisha_govt_logo.png" alt="Govt of Odisha" class="h-10 w-10 sm:h-12 sm:w-12 object-contain drop-shadow-sm" onerror="this.src='https://placehold.co/512x512/ffffff/1e3a8a?text=Odisha'">
                     <div class="hidden md:flex flex-col border-l-2 border-slate-200 pl-4 ml-2">
-                        <span class="font-extrabold text-xl text-blue-900 leading-tight">NILP ଆୱାର୍ଡ ପୋର୍ଟାଲ୍</span>
+                        <span class="font-extrabold text-xl text-blue-900 leading-tight">NLP ଆୱାର୍ଡ ପୋର୍ଟାଲ୍</span>
                         <span class="text-[10px] uppercase font-bold text-orange-600 tracking-wider">Official Portal Odisha</span>
                     </div>
                 </div>
@@ -60,7 +60,6 @@
                 <i class="fa-solid fa-shield-halved"></i> Government Approved Initiative
             </div>
             
-            <!-- UPDATED TEXT: OPTION 2 -->
             <h1 class="text-3xl md:text-5xl font-black text-white mb-4 drop-shadow-2xl leading-tight tracking-tight">
                 ନବ ଭାରତ ସାକ୍ଷରତା କାର୍ଯ୍ୟକ୍ରମ (ଉଲ୍ଲାସ): <br class="hidden md:block"/> ଉଲ୍ଲାସ ସମ୍ମାନ
             </h1>
@@ -68,7 +67,6 @@
                 ଆମ ରାଜ୍ୟର ବୟସ୍କମାନଙ୍କୁ ଶିକ୍ଷିତ କରିବା ଏହି ମହତ ଅଭିଯାନର ମୂଳ ଲକ୍ଷ୍ୟ | ନିଜ ବିଦ୍ୟାଳୟ ପକ୍ଷରୁ ସର୍ବାଧିକ ନାମାଙ୍କନ କରନ୍ତୁ ଏବଂ ଶ୍ରେଷ୍ଠ ପ୍ରଦର୍ଶନ ପାଇଁ ସମ୍ମାନିତ ହେବାର ସୁଯୋଗ ହାତଛଡା କରନ୍ତୁ ନାହିଁ |
             </p>
             
-            <!-- NEW CALL TO ACTION POINTER -->
             <div class="animate-bounce mt-2 text-white font-bold bg-white/20 px-6 py-2.5 rounded-full backdrop-blur-md border border-white/40 text-sm md:text-base shadow-xl">
                 <i class="fa-solid fa-hand-pointer mr-2"></i> ଏହି ସୁଯୋଗ ପାଇବା ପାଇଁ ତଳେ ଥିବା <span class="text-orange-300">'ପଞ୍ଜିକରଣ'</span> ଉପରେ କ୍ଲିକ୍ କରନ୍ତୁ!
             </div>
@@ -82,7 +80,6 @@
                 <div class="bg-red-100 text-red-600 w-8 h-8 rounded-full flex items-center justify-center animate-pulse shrink-0">
                     <i class="fa-solid fa-bell"></i>
                 </div>
-                <!-- TEMPORARY DATE FOR TESTING -->
                 <span class="font-medium text-sm md:text-base">ଟେଷ୍ଟିଂ ଶେଷ ତାରିଖ (Testing Ends): <strong class="text-red-600 ml-1" id="display-deadline">July 17, 2026</strong></span>
             </div>
         </div>
@@ -1167,8 +1164,11 @@
                 
                 snap.forEach(doc => {
                     const d = doc.data();
-                    districts.push(d);
-                    overallTeachers += (d.teacherCount || 0);
+                    // NEW LOGIC: Only push to array if teacherCount is greater than 0
+                    if ((d.teacherCount || 0) > 0) {
+                        districts.push(d);
+                        overallTeachers += (d.teacherCount || 0);
+                    }
                 });
                 districts.sort((a,b) => (b.teacherCount || 0) - (a.teacherCount || 0));
                 
