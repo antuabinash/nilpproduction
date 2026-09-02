@@ -3,71 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NLP System Settings</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Super Admin Settings | NILP Portal</title>
+    <script src="tailwind.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>body { font-family: sans-serif; background: #f1f5f9; }</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
+        .toast-enter { transform: translateY(100%); opacity: 0; }
+        .toast-enter-active { transform: translateY(0); opacity: 1; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .toast-exit-active { transform: translateY(100%); opacity: 0; transition: all 0.3s ease-in; }
+    </style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
-    
-    <div class="bg-white rounded-xl shadow-xl w-full max-w-md overflow-hidden">
-        <div class="bg-indigo-600 p-6 text-white text-center font-bold text-xl">Super Admin Access</div>
+<body class="text-slate-800 min-h-screen flex flex-col">
+
+    <nav class="bg-slate-900 shadow-md sticky top-0 z-50 border-b-4 border-red-500">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <div class="bg-red-500 text-white w-8 h-8 rounded flex items-center justify-center">
+                        <i class="fa-solid fa-gear"></i>
+                    </div>
+                    <span class="font-extrabold text-xl text-white tracking-wide">Super Admin</span>
+                </div>
+                <div id="auth-status" class="text-xs font-bold px-3 py-1.5 bg-slate-800 text-slate-300 rounded-full flex items-center gap-2 border border-slate-700">
+                    <i class="fa-solid fa-circle-notch fa-spin"></i> Connecting...
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow w-full max-w-4xl mx-auto px-4 py-8">
         
-        <form id="login-form" class="p-6">
-            <input type="password" id="pin" placeholder="Enter Master PIN" class="w-full p-3 border rounded mb-4 text-center tracking-[0.5em] font-bold">
-            <button type="submit" class="w-full bg-slate-900 text-white p-3 rounded font-bold">Unlock</button>
-        </form>
-
-        <form id="settings-form" class="p-6 hidden">
-            <label class="block font-bold mb-2 text-sm text-slate-700">Deadline Date (Logic trigger)</label>
-            <input type="date" id="date" class="w-full p-3 border rounded mb-4 bg-slate-50">
+        <div id="lock-screen" class="max-w-md mx-auto bg-white p-8 rounded-2xl shadow-xl border border-slate-200 mt-10 animate-fade-in-up text-center">
+            <div class="w-16 h-16 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-2xl mx-auto mb-4">
+                <i class="fa-solid fa-lock"></i>
+            </div>
+            <h2 class="text-2xl font-black text-slate-800 mb-2">Master Authentication</h2>
+            <p class="text-slate-500 text-sm font-medium mb-6">Enter Super Admin PIN to access global settings.</p>
             
-            <label class="block font-bold mb-2 text-sm text-slate-700">Display Text (Odia)</label>
-            <input type="text" id="text-odia" class="w-full p-3 border rounded mb-4 bg-slate-50" placeholder="e.g. ଅଗଷ୍ଟ ୩୧, ୨୦୨୬">
+            <form id="login-form">
+                <input type="password" id="admin-pin" required class="w-full px-4 py-3 border-2 border-slate-300 rounded-xl bg-slate-50 text-center tracking-[1em] font-bold text-xl focus:border-red-500 focus:ring-0 outline-none transition-colors mb-4" placeholder="••••">
+                <button type="submit" class="w-full py-3 bg-slate-900 text-white rounded-xl hover:bg-slate-800 font-bold shadow-lg transition-all flex justify-center items-center gap-2">
+                    <i class="fa-solid fa-key"></i> Unlock Settings
+                </button>
+            </form>
+            <p id="login-error" class="text-red-500 text-sm font-bold mt-4 hidden">Incorrect Master PIN.</p>
+        </div>
 
-            <button type="submit" class="w-full bg-indigo-600 text-white p-3 rounded font-bold">Save Changes</button>
-            <p id="msg" class="text-center text-sm font-bold text-green-600 mt-4 hidden">Saved Successfully!</p>
-        </form>
+        <div id="settings-dashboard" class="hidden">
+            <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden">
+                <div class="bg-slate-50 px-6 py-4 border-b border-slate-200 flex items-center justify-between">
+                    <h3 class="font-bold text-lg text-slate-800 flex items-center gap-2">
+                        <i class="fa-solid fa-globe text-blue-500"></i> Global Portal Settings
+                    </h3>
+                </div>
+                
+                <div class="p-6 md:p-8">
+                    <form id="settings-form" class="space-y-6">
+                        
+                        <div class="bg-blue-50/50 border border-blue-100 p-5 rounded-xl">
+                            <label class="block text-sm font-bold text-slate-700 mb-2">
+                                Portal Deadline / Last Date (Displayed on Website)
+                            </label>
+                            <p class="text-xs text-slate-500 mb-3">This text will appear in the red banner on the main page. (e.g., "ଅଗଷ୍ଟ ୩୧, ୨୦୨୬" or "August 31, 2026")</p>
+                            <input type="text" id="input-deadline" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 bg-white font-medium text-slate-800" placeholder="e.g. ଅଗଷ୍ଟ ୩୧, ୨୦୨୬">
+                        </div>
+
+                        <div class="pt-4 border-t border-slate-100 flex justify-end">
+                            <button type="submit" id="btn-save" class="px-8 py-3 bg-red-600 text-white rounded-xl hover:bg-red-700 font-bold shadow-lg flex items-center gap-2 transition-all">
+                                <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="custom-toast" class="fixed bottom-6 right-6 max-w-sm w-full bg-white rounded-xl shadow-2xl border-l-4 border-green-500 p-4 z-50 flex items-start gap-3 toast-enter hidden">
+        <div id="toast-icon" class="text-green-500 mt-0.5"><i class="fa-solid fa-circle-check text-xl"></i></div>
+        <div class="flex-grow">
+            <h4 id="toast-title" class="font-bold text-slate-800">Success</h4>
+            <p id="toast-message" class="text-sm text-slate-600 mt-1 font-medium">Operation completed successfully.</p>
+        </div>
+        <button id="close-toast" class="text-slate-400 hover:text-slate-600"><i class="fa-solid fa-xmark"></i></button>
     </div>
 
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
-        import { getAuth, signInAnonymously, signInWithCustomToken } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        import { getAuth, signInAnonymously } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
 
+        // Firebase Configuration
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'nlp-odisha';
-        const firebaseConfig = typeof __firebase_config !== 'undefined' ? JSON.parse(__firebase_config) : { apiKey: "AIzaSyD3HN5SCXq0dQ94wP73PHTJdwjNVAJOJm8", authDomain: "livequizapp-5e433.firebaseapp.com", databaseURL: "https://livequizapp-5e433-default-rtdb.firebaseio.com", projectId: "livequizapp-5e433", storageBucket: "livequizapp-5e433.firebasestorage.app", messagingSenderId: "393541118458", appId: "1:393541118458:web:76620000b8f08e87561c43" };
+        const firebaseConfig = typeof __firebase_config !== 'undefined' 
+            ? JSON.parse(__firebase_config) 
+            : {
+                apiKey: "AIzaSyD3HN5SCXq0dQ94wP73PHTJdwjNVAJOJm8",
+                authDomain: "livequizapp-5e433.firebaseapp.com",
+                projectId: "livequizapp-5e433",
+                storageBucket: "livequizapp-5e433.firebasestorage.app",
+                messagingSenderId: "393541118458",
+                appId: "1:393541118458:web:76620000b8f08e87561c43"
+            };
 
-        let db, auth;
-        
-        async function initApp() {
+        let db;
+        const MASTER_PIN = "SUPERADMIN123";
+
+        // Initialize Firebase
+        try {
             const app = initializeApp(firebaseConfig);
-            auth = getAuth(app);
+            const auth = getAuth(app);
             db = getFirestore(app);
-            if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) await signInWithCustomToken(auth, __initial_auth_token);
-            else await signInAnonymously(auth);
+
+            signInAnonymously(auth).then(() => {
+                document.getElementById('auth-status').innerHTML = `<i class="fa-solid fa-wifi"></i> Connected`;
+                document.getElementById('auth-status').className = "text-xs font-bold px-3 py-1.5 bg-green-900 text-green-400 rounded-full flex items-center gap-2 border border-green-700";
+            }).catch(console.error);
+        } catch (e) {
+            console.error("Firebase Init Error:", e);
         }
 
+        // Login Logic
         document.getElementById('login-form').addEventListener('submit', (e) => {
             e.preventDefault();
-            if (document.getElementById('pin').value === 'SUPERADMIN123') {
-                document.getElementById('login-form').classList.add('hidden');
-                document.getElementById('settings-form').classList.remove('hidden');
-            } else alert('Incorrect PIN');
+            const pin = document.getElementById('admin-pin').value;
+            
+            if (pin === MASTER_PIN) {
+                document.getElementById('lock-screen').classList.add('hidden');
+                document.getElementById('settings-dashboard').classList.remove('hidden');
+                loadSettings();
+            } else {
+                document.getElementById('login-error').classList.remove('hidden');
+                setTimeout(() => document.getElementById('login-error').classList.add('hidden'), 3000);
+            }
         });
 
+        // Load existing settings from Firestore
+        async function loadSettings() {
+            try {
+                const settingsRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                const snap = await getDoc(settingsRef);
+                
+                if (snap.exists()) {
+                    const data = snap.data();
+                    if (data.deadlineTextOdia) {
+                        document.getElementById('input-deadline').value = data.deadlineTextOdia;
+                    }
+                }
+            } catch (error) {
+                console.error("Error loading settings:", error);
+                showToast("Error", "Could not load current settings.", "error");
+            }
+        }
+
+        // Save settings to Firestore
         document.getElementById('settings-form').addEventListener('submit', async (e) => {
             e.preventDefault();
-            const data = {
-                deadlineDate: document.getElementById('date').value,
-                deadlineTextOdia: document.getElementById('text-odia').value
-            };
-            await setDoc(doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config'), data, { merge: true });
-            document.getElementById('msg').classList.remove('hidden');
-            setTimeout(() => document.getElementById('msg').classList.add('hidden'), 3000);
+            const btn = document.getElementById('btn-save');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Saving...`;
+            btn.disabled = true;
+
+            const newDateText = document.getElementById('input-deadline').value.trim();
+
+            try {
+                const settingsRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                // Use { merge: true } so we don't accidentally overwrite future settings
+                await setDoc(settingsRef, {
+                    deadlineTextOdia: newDateText,
+                    lastUpdatedBy: 'SuperAdmin',
+                    lastUpdatedAt: new Date().toISOString()
+                }, { merge: true });
+
+                showToast("Success", "Settings updated! The live website will reflect this instantly.", "success");
+            } catch (error) {
+                console.error("Error saving settings:", error);
+                showToast("Error", "Failed to save settings. Check connection.", "error");
+            } finally {
+                btn.innerHTML = originalText;
+                btn.disabled = false;
+            }
         });
 
-        window.addEventListener('DOMContentLoaded', initApp);
+        // Toast Notification System
+        function showToast(title, msg, type = 'success') {
+            const t = document.getElementById('custom-toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-message').textContent = msg;
+            const icon = document.getElementById('toast-icon');
+            
+            t.className = `fixed bottom-6 right-6 max-w-sm w-full bg-white rounded-xl shadow-2xl border-l-4 p-4 z-50 flex items-start gap-3 toast-enter-active ${type==='success'?'border-green-500':'border-red-500'}`;
+            icon.innerHTML = `<i class="fa-solid ${type==='success'?'fa-circle-check text-green-500':'fa-circle-xmark text-red-500'} text-xl"></i>`;
+            
+            clearTimeout(window.toastTimer);
+            window.toastTimer = setTimeout(() => t.classList.replace('toast-enter-active', 'toast-exit-active'), 4000);
+        }
+        
+        document.getElementById('close-toast').addEventListener('click', () => {
+            document.getElementById('custom-toast').classList.replace('toast-enter-active', 'toast-exit-active');
+        });
     </script>
 </body>
 </html>
