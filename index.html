@@ -87,7 +87,8 @@
                     <div class="bg-blue-100 text-blue-800 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-file-signature"></i></div>
                     <div>
                         <h2 class="font-bold text-slate-800 mb-1">ପଞ୍ଜିକରଣ</h2>
-                        <p class="text-slate-500 text-xs font-medium">ନୂଆ ଆବେଦନ କରନ୍ତୁ</p>
+                        <!-- ADDED ID HERE -->
+                        <p id="apply-subtext" class="text-slate-500 text-xs font-medium">ନୂଆ ଆବେଦନ କରନ୍ତୁ</p>
                     </div>
                 </div>
             </button>
@@ -99,7 +100,8 @@
                     <div class="bg-cyan-100 text-cyan-700 w-10 h-10 rounded-xl flex items-center justify-center mb-3"><i class="fa-solid fa-arrow-trend-up"></i></div>
                     <div>
                         <h2 class="font-bold text-slate-800 mb-1">ସ୍କୋର୍ ଅପଡେଟ୍</h2>
-                        <p class="text-slate-500 text-xs font-medium">ଆପଣଙ୍କର ସ୍କୋର ବଢାନ୍ତୁ</p>
+                        <!-- ADDED ID HERE -->
+                        <p id="update-subtext" class="text-slate-500 text-xs font-medium">ଆପଣଙ୍କର ସ୍କୋର ବଢାନ୍ତୁ</p>
                     </div>
                 </div>
             </button>
@@ -655,9 +657,55 @@
                         // --- LIVE LISTENER FOR SETTINGS Added here ---
                         const settingsRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
                         onSnapshot(settingsRef, (docSnap) => {
-                            if (docSnap.exists() && docSnap.data().deadlineTextOdia) {
-                                document.getElementById('display-deadline').textContent = docSnap.data().deadlineTextOdia;
+                            let isClosed = false;
+                            
+                            if (docSnap.exists()) {
+                                const data = docSnap.data();
+                                if (data.deadlineTextOdia) {
+                                    document.getElementById('display-deadline').textContent = data.deadlineTextOdia;
+                                }
+                                
+                                // Check if deadline is passed
+                                if (data.deadlineDate) {
+                                    // Add T23:59:59 to make the deadline valid until the END of the chosen day
+                                    const deadline = new Date(data.deadlineDate + 'T23:59:59');
+                                    if (new Date() > deadline) {
+                                        isClosed = true;
+                                    }
+                                }
                             }
+                            
+                            // Apply UI changes based on closed status
+                            if (isClosed) {
+                                // Disable Apply Tile
+                                const applyBtn = document.getElementById('btn-show-form');
+                                applyBtn.disabled = true;
+                                applyBtn.className = "relative overflow-hidden bg-slate-100 border-2 border-slate-300 rounded-2xl p-5 text-left border-b-4 border-b-slate-400 cursor-not-allowed opacity-75 grayscale transition-all duration-300";
+                                document.getElementById('apply-subtext').textContent = "ନୂଆ ପଞ୍ଜିକରଣ ବନ୍ଦ ହୋଇଯାଇଛି";
+                                document.getElementById('apply-subtext').className = "text-red-600 text-xs font-bold";
+
+                                // Disable Update Tile
+                                const updateBtn = document.getElementById('btn-show-update');
+                                updateBtn.disabled = true;
+                                updateBtn.className = "relative overflow-hidden bg-slate-100 border-2 border-slate-300 rounded-2xl p-5 text-left border-b-4 border-b-slate-400 cursor-not-allowed opacity-75 grayscale transition-all duration-300";
+                                document.getElementById('update-subtext').textContent = "ଅପଡେଟ୍ ବନ୍ଦ ହୋଇଯାଇଛି";
+                                document.getElementById('update-subtext').className = "text-red-600 text-xs font-bold";
+                            } else {
+                                // Re-enable Apply Tile
+                                const applyBtn = document.getElementById('btn-show-form');
+                                applyBtn.disabled = false;
+                                applyBtn.className = "group relative overflow-hidden bg-white border-2 border-blue-600 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-100";
+                                document.getElementById('apply-subtext').textContent = "ନୂଆ ଆବେଦନ କରନ୍ତୁ";
+                                document.getElementById('apply-subtext').className = "text-slate-500 text-xs font-medium";
+
+                                // Re-enable Update Tile
+                                const updateBtn = document.getElementById('btn-show-update');
+                                updateBtn.disabled = false;
+                                updateBtn.className = "group relative overflow-hidden bg-white border-2 border-cyan-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-cyan-600 focus:outline-none focus:ring-4 focus:ring-cyan-100";
+                                document.getElementById('update-subtext').textContent = "ଆପଣଙ୍କର ସ୍କୋର ବଢାନ୍ତୁ";
+                                document.getElementById('update-subtext').className = "text-slate-500 text-xs font-medium";
+                            }
+                            
                         }, (err) => {
                             console.error("Error fetching settings:", err);
                         });
