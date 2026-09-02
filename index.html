@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NILP ଆୱାର୍ଡ ପୋର୍ଟାଲ୍ | Official Portal</title>
+    <!-- BSNL FIX: Using local tailwind.js instead of the blocked CDN -->
     <script src="tailwind.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -79,6 +80,7 @@
         </div>
 
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-10">
+            <!-- Apply Button -->
             <button id="btn-show-form" class="group relative overflow-hidden bg-white border-2 border-blue-600 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-blue-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
@@ -90,6 +92,7 @@
                 </div>
             </button>
 
+            <!-- Update Score Button -->
             <button id="btn-show-update" class="group relative overflow-hidden bg-white border-2 border-cyan-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-cyan-600 focus:outline-none focus:ring-4 focus:ring-cyan-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-cyan-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
@@ -101,6 +104,7 @@
                 </div>
             </button>
 
+            <!-- Leaderboard Button -->
             <button id="btn-show-leaderboard" class="group relative overflow-hidden bg-white border-2 border-emerald-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-emerald-600 focus:outline-none focus:ring-4 focus:ring-emerald-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-emerald-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
@@ -112,6 +116,7 @@
                 </div>
             </button>
 
+            <!-- Certificate Button -->
             <button id="btn-show-certificate" class="group relative overflow-hidden bg-white border-2 border-amber-500 rounded-2xl shadow-md hover:shadow-xl transition-all duration-300 p-5 text-left border-b-4 border-b-amber-600 focus:outline-none focus:ring-4 focus:ring-amber-100">
                 <div class="absolute top-0 right-0 -mt-4 -mr-4 w-20 h-20 bg-amber-50 rounded-full z-0 group-hover:scale-150 transition-transform duration-500"></div>
                 <div class="relative z-10 flex flex-col h-full justify-between">
@@ -124,6 +129,7 @@
             </button>
         </div>
 
+        <!-- NOMINATION FORM SECTION -->
         <section id="section-form" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-2xl overflow-hidden mb-12 border-t-4 border-blue-800">
                 <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center">
@@ -143,6 +149,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- Personal Details -->
                         <div class="space-y-5">
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-regular fa-id-badge text-indigo-500"></i> ବ୍ୟକ୍ତିଗତ ବିବରଣୀ</h4>
                             <div>
@@ -180,6 +187,7 @@
                             <p class="text-[11px] text-slate-500 mt-1 font-medium -mt-2"><i class="fa-solid fa-key"></i> ଭବିଷ୍ୟତରେ ଆପଣଙ୍କ ସ୍କୋର ଅପଡେଟ୍ କରିବାକୁ ଏହି ପିନ୍ ମନେରଖନ୍ତୁ | (Remember this PIN)</p>
                         </div>
 
+                        <!-- School Details -->
                         <div class="space-y-5">
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-solid fa-school text-indigo-500"></i> ବିଦ୍ୟାଳୟ ତଥ୍ୟ</h4>
                             <div class="grid grid-cols-2 gap-4">
@@ -217,10 +225,12 @@
                             </div>
                         </div>
 
+                        <!-- Uploads -->
                         <div class="space-y-5 md:col-span-2 mt-2">
                             <h4 class="font-bold text-slate-800 border-b-2 border-slate-100 pb-2 flex items-center gap-2"><i class="fa-solid fa-cloud-arrow-up text-indigo-500"></i> ପ୍ରମାଣପତ୍ର ଅପଲୋଡ୍ (Secure Upload)</h4>
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <div class="relative group">
+                                    <!-- Optional Photo -->
                                     <input type="file" id="file-photo" accept="image/jpeg, image/png, image/jpg" class="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10">
                                     <div class="border-2 border-dashed border-slate-300 rounded-2xl p-6 text-center group-hover:border-indigo-400 bg-white transition-all">
                                         <div id="preview-photo-container" class="w-16 h-16 mx-auto mb-3 rounded-full bg-slate-100 flex items-center justify-center overflow-hidden border border-slate-200">
@@ -255,6 +265,7 @@
             </div>
         </section>
 
+        <!-- UPDATE SCORE SECTION -->
         <section id="section-update" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-2xl overflow-hidden mb-12 border-t-4 border-cyan-500 max-w-2xl mx-auto">
                 <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center">
@@ -269,6 +280,7 @@
                 
                 <div class="p-6 md:p-8 bg-slate-50/50">
                     
+                    <!-- 1. LOGIN VIEW -->
                     <div id="update-login-div" class="block">
                         <p class="text-slate-600 mb-6 font-medium text-center">ଲଗ୍ ଇନ୍ କରିବାକୁ ଆପଣଙ୍କର ପଞ୍ଜୀକୃତ ଫୋନ୍ ନମ୍ବର ଏବଂ ୪-ଅଙ୍କ ବିଶିଷ୍ଟ ପିନ୍ ପ୍ରବେଶ କରନ୍ତୁ |</p>
                         <form id="update-login-form" class="space-y-4 max-w-sm mx-auto">
@@ -294,6 +306,7 @@
                         </form>
                     </div>
 
+                    <!-- 2. FORGOT PIN VIEW -->
                     <div id="forgot-pin-div" class="hidden">
                         <div class="bg-amber-50 border border-amber-200 p-4 rounded-xl mb-6 text-sm text-amber-800 font-medium">
                             ପିନ୍ ରିସେଟ୍ କରିବାକୁ ଦୟାକରି ଆପଣଙ୍କର ଫୋନ୍ ନମ୍ବର ଏବଂ ଆପଣଙ୍କ ବିଦ୍ୟାଳୟର ସଠିକ୍ UDISE କୋଡ୍ ପ୍ରବେଶ କରନ୍ତୁ |
@@ -320,6 +333,7 @@
                         </form>
                     </div>
 
+                    <!-- 3. UPDATE DATA VIEW -->
                     <div id="update-data-div" class="hidden">
                         <div class="bg-white p-5 rounded-xl border border-slate-200 shadow-sm mb-6 text-center">
                             <div class="w-16 h-16 mx-auto bg-cyan-100 text-cyan-600 rounded-full flex items-center justify-center text-2xl mb-3"><i class="fa-solid fa-user-tie"></i></div>
@@ -337,6 +351,7 @@
                             <label class="block text-sm font-bold text-cyan-700 mb-2 text-center">ନୂତନ ସମୁଦାୟ ସଂଖ୍ୟା (New Total Enrollment) *</label>
                             <input type="number" id="new-score" required class="w-full px-4 py-4 border-2 border-cyan-400 rounded-xl bg-cyan-50 text-center font-black text-3xl text-cyan-900 focus:outline-none focus:ring-4 focus:ring-cyan-200 transition-all shadow-inner mb-6">
                             
+                            <!-- NEW PROOF UPLOAD FOR UPDATE -->
                             <div class="mb-6">
                                 <label class="block text-sm font-bold text-cyan-700 mb-2 text-center">ନୂତନ ପ୍ରମାଣପତ୍ର ସ୍କ୍ରିନସଟ୍ (New App Screenshot) *</label>
                                 <div class="relative group max-w-[200px] mx-auto">
@@ -362,6 +377,7 @@
             </div>
         </section>
 
+        <!-- SUCCESS SECTION -->
         <section id="section-success" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-xl border-t-4 border-green-500 overflow-hidden mb-12 p-10 md:p-16 flex flex-col items-center justify-center text-center">
                 <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6 shadow-inner border-4 border-white"><i class="fa-solid fa-check text-5xl text-green-600"></i></div>
@@ -387,9 +403,11 @@
             </div>
         </section>
 
+        <!-- CERTIFICATE SECTION (IMMEDIATELY AVAILABLE) -->
         <section id="section-certificate" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-xl border-t-4 border-amber-500 overflow-hidden mb-12 flex flex-col items-center justify-center p-6 md:p-12 relative max-w-2xl mx-auto">
                 
+                <!-- LOGIN VIEW -->
                 <div id="cert-login-div" class="w-full">
                     <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center mb-6 rounded-xl shadow-sm border border-slate-200">
                         <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
@@ -424,6 +442,7 @@
                     </form>
                 </div>
 
+                <!-- FORGOT PIN VIEW (CERTIFICATE) -->
                 <div id="cert-forgot-pin-div" class="hidden w-full">
                     <div class="bg-white px-6 py-5 border-b border-slate-100 flex justify-between items-center mb-6 rounded-xl shadow-sm border border-slate-200">
                         <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
@@ -459,6 +478,7 @@
                     </form>
                 </div>
 
+                <!-- DOWNLOAD VIEW -->
                 <div id="cert-download-div" class="hidden w-full text-center">
                     <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mb-4 mx-auto shadow-inner border-4 border-white"><i class="fa-solid fa-check text-4xl text-green-500"></i></div>
                     <h2 class="text-2xl font-black text-slate-800 mb-1" id="cert-disp-name">Teacher Name</h2>
@@ -468,11 +488,13 @@
                         <i class="fa-solid fa-download"></i> ସାର୍ଟିଫିକେଟ୍ ଡାଉନଲୋଡ୍ କରନ୍ତୁ 
                     </button>
                     
+                    <!-- Hidden canvas used for offline image rendering -->
                     <canvas id="cert-canvas" class="hidden"></canvas>
                 </div>
             </div>
         </section>
 
+        <!-- LEADERBOARD SECTION -->
         <section id="section-leaderboard" class="hidden animate-fade-in-up">
             <div class="glass-panel rounded-2xl shadow-2xl overflow-hidden mb-12 border-t-4 border-emerald-500">
                 <div class="bg-white px-6 py-5 border-b border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4">
@@ -508,6 +530,7 @@
                         </table>
                     </div>
 
+                    <!-- INDIVIDUAL TEACHER VIEW -->
                     <div id="view-schools" class="hidden overflow-x-auto bg-white md:rounded-xl shadow-sm border border-slate-200 no-scrollbar">
                         <div class="bg-slate-100 p-3 text-sm font-semibold text-slate-600 border-b border-slate-200 flex justify-between items-center">
                             <button id="btn-back-districts" class="hover:text-indigo-600 transition-colors flex items-center gap-2 px-3 py-1 bg-white rounded shadow-sm">
@@ -551,7 +574,8 @@
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
-        import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, doc, writeBatch, getDocs, query, where, orderBy, increment, serverTimestamp, getDoc, updateDoc, limit } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+        // IMPORT ONSNAPSHOT ADDED HERE:
+        import { initializeFirestore, persistentLocalCache, persistentMultipleTabManager, collection, doc, writeBatch, getDocs, query, where, orderBy, increment, serverTimestamp, getDoc, updateDoc, limit, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
         import { getStorage, ref, uploadString, getDownloadURL } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-storage.js";
 
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'nlp-odisha';
@@ -627,6 +651,17 @@
                         currentUser = user; isFirebaseReady = true;
                         document.getElementById('auth-status').innerHTML = `<i class="fa-solid fa-shield-check"></i> ସୁରକ୍ଷିତ (Secure)`;
                         document.getElementById('auth-status').className = "text-xs font-bold px-3 py-1.5 bg-green-50 text-green-700 rounded-full flex items-center gap-2 border border-green-200 shadow-sm";
+                        
+                        // --- LIVE LISTENER FOR SETTINGS Added here ---
+                        const settingsRef = doc(db, 'artifacts', appId, 'public', 'data', 'settings', 'config');
+                        onSnapshot(settingsRef, (docSnap) => {
+                            if (docSnap.exists() && docSnap.data().deadlineTextOdia) {
+                                document.getElementById('display-deadline').textContent = docSnap.data().deadlineTextOdia;
+                            }
+                        }, (err) => {
+                            console.error("Error fetching settings:", err);
+                        });
+                        // ----------------------------------------------
                     }
                 });
             } catch (err) {
