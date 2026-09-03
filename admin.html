@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>District Admin | NILP Portal</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- BSNL FIX: Using local tailwind.js instead of the blocked CDN -->
+    <script src="tailwind.js"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background-color: #f1f5f9; }
@@ -192,7 +193,7 @@
             const pin = document.getElementById('admin-pin').value.trim();
             const err = document.getElementById('login-error');
             
-            // DEMO PINS: 'ADMIN123' for full access. In production, fetch this from a secure 'admin_roles' collection.
+            // DEMO PINS: 'ADMIN123' for full access.
             if (pin === 'ADMIN123') {
                 adminRole = 'SUPER';
                 err.classList.add('hidden');
@@ -237,25 +238,21 @@
             const collectionRef = collection(db, 'artifacts', appId, 'public', 'data', 'nominations');
             
             if (adminRole !== 'SUPER') {
-                // Limit read to only their district
                 q = query(collectionRef, where('district', '==', adminRole));
             } else {
-                // Super admin sees all, or whatever is selected in dropdown
                 const selectedDist = document.getElementById('filter-district').value;
                 if(selectedDist === 'ALL') {
-                    q = query(collectionRef); // Entire state (Requires index or limits in prod)
+                    q = query(collectionRef);
                 } else {
                     q = query(collectionRef, where('district', '==', selectedDist));
                 }
             }
 
-            // Real-time listener
             unsubscribeData = onSnapshot(q, (snapshot) => {
                 districtNominations = [];
                 snapshot.forEach(doc => {
                     districtNominations.push({ id: doc.id, ...doc.data() });
                 });
-                // Sort by highest enrollment
                 districtNominations.sort((a, b) => b.learnersEnrolled - a.learnersEnrolled);
                 renderTable();
                 document.getElementById('loading-spinner').classList.add('hidden');
@@ -274,7 +271,6 @@
             let count = 0;
 
             districtNominations.forEach(nom => {
-                // Search filter logic
                 const searchString = `${nom.schoolName} ${nom.block} ${nom.cluster} ${nom.udiseCode} ${nom.teacherName}`.toLowerCase();
                 if (searchTerms && !searchString.includes(searchTerms)) return;
 
@@ -313,13 +309,11 @@
             document.getElementById('stat-count').textContent = count;
         }
 
-        // Event Listeners for Filters
         document.getElementById('filter-district').addEventListener('change', () => {
             if(adminRole === 'SUPER') fetchLiveAdminData();
         });
         document.getElementById('filter-search').addEventListener('input', renderTable);
 
-        // Global functions for inline HTML buttons
         window.view = (id) => {
             const nom = districtNominations.find(n => n.id === id);
             document.getElementById('details-content').innerHTML = `
@@ -332,7 +326,6 @@
         };
         document.querySelector('.close-details').onclick = () => document.getElementById('modal-details').classList.add('hidden');
 
-        // NEW LOGIC: Batch delete teacher and reverse district counts
         window.del = async (id) => {
             if(confirm("Permanently delete this entry? This will also reverse the scoreboard counts.")) {
                 try {
@@ -341,10 +334,8 @@
 
                     const batch = writeBatch(db);
 
-                    // 1. Delete the teacher record
                     batch.delete(doc(db, 'artifacts', appId, 'public', 'data', 'nominations', id));
 
-                    // 2. Reduce the district aggregates
                     const distRef = doc(db, 'artifacts', appId, 'public', 'data', 'lb_districts', nom.district);
                     batch.update(distRef, {
                         teacherCount: increment(-1),
@@ -359,7 +350,6 @@
             }
         };
 
-        // Export to CSV Function
         document.getElementById('btn-export-csv').addEventListener('click', () => {
             if(districtNominations.length === 0) { alert("No data to export."); return; }
             
